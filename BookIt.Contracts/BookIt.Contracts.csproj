@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="BookitInfo.cs" />
     <Compile Include="DeletableEntity.cs" />
-    <Compile Include="IBookitInfo.cs" />
+    <Compile Include="IAuditInfo.cs" />
     <Compile Include="IDeletableEntity.cs" />
     <Compile Include="IDeletableEntityRepository.cs" />
     <Compile Include="IOrderable.cs" />
