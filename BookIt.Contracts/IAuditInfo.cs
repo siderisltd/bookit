@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public interface IBookitInfo
+    public interface IAuditInfo
     {
         DateTime CreatedOn { get; set; }
 
