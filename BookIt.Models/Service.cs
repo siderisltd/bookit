@@ -1,12 +1,13 @@
 ﻿namespace BookIt.Models
 {
+    using BookIt.Contracts;
     using System.Collections.Generic;
 
-    public class Service
+    public class Service : IDeletableEntity
     {
         public Service()
         {
-            this.Providers = new HashSet<Unit>();
+            this.Providers = new HashSet<IUnit>();
         }
 
         public int ID { get; set; }
@@ -19,6 +20,31 @@
 
         public virtual Category Category { get; set; }
 
-        public ICollection<Unit> Providers { get; set; }
+        public bool IsDeleted
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+
+        public System.DateTime? DeletedOn
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+
+        public ICollection<IUnit> Providers { get; set; }
+
     }
 }

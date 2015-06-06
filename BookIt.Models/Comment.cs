@@ -5,6 +5,10 @@
 
     public class Comment: IComment
     {
+        public Comment()
+        {
+            this.User = new AppUser();
+        }
         public int ID { get; set; }
 
         public string Content { get; set; }

@@ -5,13 +5,13 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class BusinessLocation : ICommentable
+    public class BusinessLocation : IBusinessLocation, ICommentable
     {
         public BusinessLocation()
         {
             this.Comments = new HashSet<IComment>();
-            this.Units = new HashSet<Unit>();
-            this.Categories = new HashSet<Category>();
+            this.Units = new HashSet<IUnit>();
+            this.Categories = new HashSet<ICategory>();
         }
 
         public int ID { get; set; }
@@ -20,8 +20,8 @@
 
         public virtual ICollection<IComment> Comments { get; set; }
 
-        public virtual ICollection<Unit> Units { get; set; }
+        public virtual ICollection<IUnit> Units { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<ICategory> Categories { get; set; }
     }
 }

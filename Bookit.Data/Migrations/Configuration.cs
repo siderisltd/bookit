@@ -1,5 +1,6 @@
 namespace Bookit.Data.Migrations
 {
+    using BookIt.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUser.cs" />
+    <Compile Include="Business.cs" />
     <Compile Include="BusinessLocation.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Comment.cs" />
