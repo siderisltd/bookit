@@ -52,7 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookItData.cs" />
     <Compile Include="BookItDbContext.cs" />
+    <Compile Include="IBookItData.cs" />
+    <Compile Include="IBookItDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

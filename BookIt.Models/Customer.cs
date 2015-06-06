@@ -6,7 +6,10 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    class Customer
+    public class Customer
     {
+        public int ID { get; set; }
+
+
     }
 }

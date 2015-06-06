@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Web", "BookIt\BookIt.Web.csproj", "{A89F753F-5FA9-4717-9219-D07E8F64CEA9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Models", "BookIt.Models\BookIt.Models.csproj", "{F9F60195-CE27-498B-B1EC-13DE1EB9E702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data", "Bookit.Data\BookIt.Data.csproj", "{4F727F3D-A716-4030-A6E1-0B1D359AC9B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Contracts", "BookIt.Contracts\BookIt.Contracts.csproj", "{B8D04782-EC58-4AFD-8445-045865883E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Web", "BookIt.Web\BookIt.Web.csproj", "{43CD019D-D552-4395-B845-00FB2D531EE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A89F753F-5FA9-4717-9219-D07E8F64CEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A89F753F-5FA9-4717-9219-D07E8F64CEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A89F753F-5FA9-4717-9219-D07E8F64CEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A89F753F-5FA9-4717-9219-D07E8F64CEA9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9F60195-CE27-498B-B1EC-13DE1EB9E702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9F60195-CE27-498B-B1EC-13DE1EB9E702}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9F60195-CE27-498B-B1EC-13DE1EB9E702}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{B8D04782-EC58-4AFD-8445-045865883E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D04782-EC58-4AFD-8445-045865883E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D04782-EC58-4AFD-8445-045865883E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CD019D-D552-4395-B845-00FB2D531EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CD019D-D552-4395-B845-00FB2D531EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CD019D-D552-4395-B845-00FB2D531EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CD019D-D552-4395-B845-00FB2D531EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

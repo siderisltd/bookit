@@ -1,18 +1,65 @@
 ﻿namespace Bookit.Data
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using BookIt.Models;
-
-    public class BookItDbContext : IdentityDbContext<AppUser>
+    using Bookit.Data.Migrations;
+    
+    public class BookItDbContext : IdentityDbContext<AppUser>, IBookItDbContext
     {
         public BookItDbContext()
-            : base("DefaultConnection")
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
+        }
+
+        public IDbSet<BusinessLocation> BusinessLocations { get; set; }
+
+        public IDbSet<Category> Categories { get; set; }
+
+        public IDbSet<Comment> Comments { get; set; }
+
+        public IDbSet<Customer> Customers { get; set; }
+
+        public IDbSet<Service> Services { get; set; }
+
+        public IDbSet<Subscription> Subscriptions { get; set; }
+
+        public IDbSet<Unit> Units { get; set; }
+
+        public IDbSet<Vote> Votes { get; set; }
+
+        public DbContext DbContext
+        {
+            get { return this; }
+        }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
+
+         public static BookItDbContext Create()
+        {
+            return new BookItDbContext();
+        }
+
+        public void ClearDatabase()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DbEntityEntry<TEntity> Entity<TEntity>(TEntity entity) where TEntity : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
         }
     }
 }

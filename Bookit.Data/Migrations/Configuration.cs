@@ -5,14 +5,15 @@ namespace Bookit.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Bookit.Data.BookItDbContext>
+    public sealed class MigrationConfiguration : DbMigrationsConfiguration<BookItDbContext>
     {
-        public Configuration()
+        public MigrationConfiguration()
         {
             this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(Bookit.Data.BookItDbContext context)
+        protected override void Seed(BookItDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

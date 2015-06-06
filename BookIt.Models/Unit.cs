@@ -25,5 +25,7 @@
         public virtual ICollection<Service> ServicesProvided { get; set; }
 
         public virtual ICollection<DateTime> Schedule { get; set; }
+
+        public virtual ICollection<Vote> Votes { get; set; }
     }
 }
