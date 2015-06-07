@@ -1,17 +1,18 @@
 ﻿namespace BookIt.Models
 {
-    using BookIt.Contracts;
+    using System;
     using System.Collections.Generic;
+    using BookIt.Contracts;
 
     public class Comment: IComment
     {
-        public Comment()
-        {
-            this.User = new AppUser();
-        }
         public int ID { get; set; }
 
         public string Content { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public string UserID { get; set; }
 
         public virtual AppUser User { get; set; }
     }

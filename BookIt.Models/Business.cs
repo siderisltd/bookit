@@ -5,145 +5,23 @@
     using System.Linq;
     using BookIt.Contracts;
 
-    public class Business : IBusiness, ICommentable, IComment, IVote, IRateable, IAuditInfo, IDeletableEntity
+    public class Business : DeletableEntity, IDeletableEntity, IAuditInfo
     {
-        public int ID
+        public Business()
         {
-            get { throw new NotImplementedException(); }
+            this.Locations = new HashSet<Location>();
         }
 
-        public string Content
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public int ID { get; set; }
 
-        public int Value
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public string Name { get; set; }
 
-        public double Rating
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public string Description { get; set; }
 
-        public bool PreserveCreatedOn
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string OwnerID { get; set; }
 
-        public bool IsDeleted
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public virtual AppUser Owner { get; set; }
 
-        public DateTime CreatedOn
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public DateTime? ModifiedOn
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public DateTime? DeletedOn
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public ICollection<IBusinessLocation> Locations
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public ICollection<IUnit> Units
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public ICategory Category
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public ICollection<IService> Services
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public ICollection<IComment> Comments
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public ICollection<IVote> Votes
-        {
-            set { throw new NotImplementedException(); }
-        }
-
+        public virtual ICollection<Location> Locations { get; set; }
     }
 }

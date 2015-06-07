@@ -16,7 +16,7 @@
         {
         }
 
-        public IDbSet<BusinessLocation> BusinessLocations { get; set; }
+        public IDbSet<Location> BusinessLocations { get; set; }
 
         public IDbSet<Category> Categories { get; set; }
 
@@ -26,11 +26,17 @@
 
         public IDbSet<Service> Services { get; set; }
 
-        public IDbSet<Subscription> Subscriptions { get; set; }
+        public IDbSet<Engagement> Subscriptions { get; set; }
 
-        public IDbSet<Unit> Units { get; set; }
+        public IDbSet<WorkingUnit> Units { get; set; }
 
         public IDbSet<Vote> Votes { get; set; }
+
+        public IDbSet<Address> Addresses { get; set; }
+
+        public IDbSet<City> Citys { get; set; }
+
+        public IDbSet<Street> Streets { get; set; }
 
         public DbContext DbContext
         {

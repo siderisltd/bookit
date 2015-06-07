@@ -4,7 +4,6 @@
 
     public interface ICommentable
     {
-        double Rating { get; }
         ICollection<IComment> Comments { get; }
     }
 }

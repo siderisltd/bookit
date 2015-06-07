@@ -5,6 +5,7 @@
 
     public interface IRateable
     {
+        double Rating { get; }
         ICollection<IVote> Votes { set; }
     }
 }

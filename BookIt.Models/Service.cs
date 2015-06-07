@@ -3,11 +3,11 @@
     using BookIt.Contracts;
     using System.Collections.Generic;
 
-    public class Service : IDeletableEntity
+    public class Service : DeletableEntity, IDeletableEntity
     {
         public Service()
         {
-            this.Providers = new HashSet<IUnit>();
+            this.Providers = new HashSet<WorkingUnit>();
         }
 
         public int ID { get; set; }
@@ -20,31 +20,6 @@
 
         public virtual Category Category { get; set; }
 
-        public bool IsDeleted
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
-        }
-
-        public System.DateTime? DeletedOn
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
-        }
-
-        public ICollection<IUnit> Providers { get; set; }
-
+        public virtual ICollection<WorkingUnit> Providers { get; set; }
     }
 }

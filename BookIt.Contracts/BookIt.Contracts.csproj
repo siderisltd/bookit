@@ -43,9 +43,6 @@
     <Compile Include="BookitInfo.cs" />
     <Compile Include="DeletableEntity.cs" />
     <Compile Include="IAuditInfo.cs" />
-    <Compile Include="IBusiness.cs" />
-    <Compile Include="IBusinessLocation.cs" />
-    <Compile Include="ICategory.cs" />
     <Compile Include="IComentable.cs" />
     <Compile Include="IComment.cs" />
     <Compile Include="IDeletableEntity.cs" />
@@ -53,10 +50,9 @@
     <Compile Include="IOrderable.cs" />
     <Compile Include="IRateable.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="IService.cs" />
-    <Compile Include="IUnit.cs" />
     <Compile Include="IVote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rateable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,67 +7,19 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Customer : BookitInfo, IComment, ICommentable, IRateable ,IVote , IDeletableEntity
+    public class Customer : Rateable, IDeletableEntity, IAuditInfo, ICommentable, IRateable
     {
-        public int ID { get; set; }
-
         public Customer()
         {
-            this.Comments = new HashSet<IComment>();
-            this.Subscriptions = new HashSet<Subscription>();
-            this.Votes = new HashSet<IVote>();
+            this.Subscriptions = new HashSet<Engagement>();
         }
 
-        public int Value
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public int ID { get; set; }
 
-        public double Rating
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public string UserID { get; set; }
 
-        public string Content
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public virtual AppUser User { get; set; }
 
-        public bool IsDeleted
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public DateTime? DeletedOn
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public virtual ICollection<IComment> Comments
-        {
-            get { throw new NotImplementedException();}
-            private set { }
-        }
-
-        public virtual IEnumerable<Subscription> Subscriptions { get; set; }
-
-        public ICollection<IVote> Votes
-        {
-            set { throw new NotImplementedException(); }
-        }
+        public virtual IEnumerable<Engagement> Subscriptions { get; set; }
     }
 }

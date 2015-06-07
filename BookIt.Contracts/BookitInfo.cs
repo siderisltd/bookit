@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public abstract class BookitInfo : IAuditInfo
+    public abstract class AuditInfo : IAuditInfo
     {
         public DateTime CreatedOn { get; set; }
 
