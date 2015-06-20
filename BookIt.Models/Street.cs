@@ -1,10 +1,8 @@
 ﻿namespace BookIt.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    using BookIt.Contracts;
 
-    public class Street
+    public class Street: DeletableEntity, IDeletableEntity
     {
         public int ID { get; set; }
 

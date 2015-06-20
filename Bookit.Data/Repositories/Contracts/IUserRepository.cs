@@ -1,4 +1,4 @@
-﻿namespace Bookit.Data.Contracts
+﻿namespace Bookit.Data.Repositories.Contracts
 {
     using BookIt.Contracts;
     using BookIt.Models;

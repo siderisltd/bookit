@@ -55,11 +55,6 @@
             throw new NotImplementedException();
         }
 
-        public DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class
-        {
-            throw new NotImplementedException();
-        }
-
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();

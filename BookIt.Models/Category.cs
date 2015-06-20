@@ -1,8 +1,10 @@
 ﻿namespace BookIt.Models
 {
     using System.Collections.Generic;
-    
-    public class Category
+
+    using BookIt.Contracts;
+
+    public class Category : DeletableEntity, IDeletableEntity
     {
         public Category()
         {

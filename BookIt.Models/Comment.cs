@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using BookIt.Contracts;
 
-    public class Comment : IComment
+    public class Comment : DeletableEntity, IDeletableEntity, IComment
     {
         public int ID { get; set; }
 

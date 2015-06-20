@@ -4,7 +4,7 @@
 
     using BookIt.Contracts;
 
-    public class Vote : IVote
+    public class Vote : DeletableEntity, IDeletableEntity, IVote
     {
         public int ID { get; set; }
         [Range(1, 5)]

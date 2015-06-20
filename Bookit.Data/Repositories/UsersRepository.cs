@@ -3,8 +3,8 @@
     using System;
     using System.Linq;
 
-    using Bookit.Data.Contracts;
     using Bookit.Data.Repositories.Base;
+    using Bookit.Data.Repositories.Contracts;
     using BookIt.Models;
 
     public class UsersRepository : GenericRepository<AppUser>, IUsersRepository
