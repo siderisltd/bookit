@@ -1,4 +1,5 @@
-﻿@{
+﻿@model BookIt.Web.ViewModels.Home.HomeViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -9,6 +10,11 @@
 </div>
 
 <div class="row">
+    @foreach (var category in @Model.Categories)
+    {
+        <div class="col-lg-1">@category.Name</div>
+    }
+
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>

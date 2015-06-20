@@ -1,30 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace BookIt.Web.Controllers
+﻿namespace BookIt.Web.Controllers
 {
-    public class HomeController : Controller
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using Bookit.Data;
+    using BookIt.Web.ViewModels.Home;
+
+    using ViewModelType = BookIt.Web.ViewModels.Categories.CategoryViewModel;
+
+    public class HomeController : BaseController
     {
+        public HomeController()
+            : this(new BookItData())
+        {
+        }
+
+        public HomeController(IBookItData data)
+            : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
-            return View();
-        }
+            var homeViewModel = new HomeViewModel {
+                Categories = this.Data.Categories.All().Select(ViewModelType.ViewModel),
+            };
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return this.View(homeViewModel);
         }
     }
 }

@@ -1,10 +1,12 @@
 namespace Bookit.Data.Migrations
 {
+    using BookIt.Models;
+    using System;
     using System.Data.Entity.Migrations;
 
-    public sealed class MigrationConfiguration : DbMigrationsConfiguration<BookItDbContext>
+    public sealed class DefaultMigrationConfiguration : DbMigrationsConfiguration<BookItDbContext>
     {
-        public MigrationConfiguration()
+        public DefaultMigrationConfiguration()
         {
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;
@@ -23,6 +25,24 @@ namespace Bookit.Data.Migrations
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
+
+            context.Categories.AddOrUpdate(c => c.Name,
+                new Category()
+                {
+                    Name = "Restorant",
+                    CreatedOn = DateTime.Now,
+                    PreserveCreatedOn = true,
+                }, new Category()
+                {
+                    Name = "Hairdresser",
+                    CreatedOn = DateTime.Now,
+                    PreserveCreatedOn = true,
+                }, new Category()
+                {
+                    Name = "Doctor",
+                    CreatedOn = DateTime.Now,
+                    PreserveCreatedOn = true,
+                });
         }
     }
 }

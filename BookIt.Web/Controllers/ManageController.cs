@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using BookIt.Web.Models;
+using BookIt.Web.ViewModels;
 
 namespace BookIt.Web.Controllers
 {
