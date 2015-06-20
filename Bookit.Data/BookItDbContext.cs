@@ -55,7 +55,7 @@
             throw new NotImplementedException();
         }
 
-        public DbEntityEntry<TEntity> Entity<TEntity>(TEntity entity) where TEntity : class
+        public DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class
         {
             throw new NotImplementedException();
         }

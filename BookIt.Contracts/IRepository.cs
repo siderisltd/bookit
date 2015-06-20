@@ -19,7 +19,5 @@
         void Delete(int id);
 
         void Detach(T entity);
-
-        void UpdateValues(Expression<Func<T, object>> entity);
     }
 }

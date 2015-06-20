@@ -12,7 +12,7 @@
 
         void ClearDatabase();
 
-        DbEntityEntry<TEntity> Entity<TEntity>(TEntity entity) where TEntity : class;
+        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
         IDbSet<T> Set<T>() where T : class;
     }
