@@ -1,4 +1,4 @@
-﻿namespace Bookit.Data.Repositories
+﻿namespace Bookit.Data.Repositories.Base
 {
     using System;
     using System.Data.Entity;
