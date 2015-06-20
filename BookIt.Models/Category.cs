@@ -1,6 +1,5 @@
 ﻿namespace BookIt.Models
 {
-    using BookIt.Contracts;
     using System.Collections.Generic;
     
     public class Category

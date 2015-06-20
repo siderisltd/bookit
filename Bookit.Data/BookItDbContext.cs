@@ -3,11 +3,8 @@
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-    using Microsoft.AspNet.Identity.EntityFramework;
-
     using BookIt.Models;
-    using Bookit.Data.Migrations;
+    using Microsoft.AspNet.Identity.EntityFramework;
     
     public class BookItDbContext : IdentityDbContext<AppUser>, IBookItDbContext
     {
@@ -43,14 +40,14 @@
             get { return this; }
         }
 
+        public static BookItDbContext Create()
+        {
+            return new BookItDbContext();
+        }
+
         public override int SaveChanges()
         {
             return base.SaveChanges();
-        }
-
-         public static BookItDbContext Create()
-        {
-            return new BookItDbContext();
         }
 
         public void ClearDatabase()

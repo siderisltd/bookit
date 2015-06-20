@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security;
-
-using BookIt.Models;
-using Bookit.Data;
-
-namespace BookIt.Web
+﻿namespace BookIt.Web
 {
+    using System;
+    using System.Threading.Tasks;
+    using System.Security.Claims;
+    using Microsoft.Owin;
+    using Microsoft.Owin.Security;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using BookIt.Models;
+    using Bookit.Data;
+
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -86,6 +81,7 @@ namespace BookIt.Web
                 manager.UserTokenProvider = 
                     new DataProtectorTokenProvider<AppUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
+
             return manager;
         }
     }

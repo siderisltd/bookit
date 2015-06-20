@@ -1,9 +1,7 @@
 ﻿namespace BookIt.Models
 {
-    using BookIt.Contracts;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using BookIt.Contracts;
 
     public class Location : Rateable, IDeletableEntity, IAuditInfo, ICommentable, IRateable
     {

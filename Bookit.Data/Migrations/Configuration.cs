@@ -1,10 +1,6 @@
 namespace Bookit.Data.Migrations
 {
-    using BookIt.Models;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     public sealed class MigrationConfiguration : DbMigrationsConfiguration<BookItDbContext>
     {
@@ -27,7 +23,6 @@ namespace Bookit.Data.Migrations
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            //
         }
     }
 }
