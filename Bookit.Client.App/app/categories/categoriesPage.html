@@ -1,0 +1,10 @@
+﻿<div class="panel panel-primary" ng-controller="CategoriesController as vm">
+    <div class="panel-heading">
+        Categories
+    </div>
+    <div class="panel-body">
+        <div ng-repeat="cat in vm.categories" >
+            <span data-id="{{cat.ID}}">{{cat.Name}}</span>
+        </div>
+    </div>
+</div>
