@@ -11,6 +11,34 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Contracts", "BookIt.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Web", "BookIt.Web\BookIt.Web.csproj", "{43CD019D-D552-4395-B845-00FB2D531EE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookit.WebApi", "Bookit.WebApi\Bookit.WebApi.csproj", "{81F452FF-B77A-4C48-99C1-2FBAEAD785A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{D09E918A-2FDC-44CB-A6AC-8BEE43F40869}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{F08F2287-CB37-4072-BBB0-1C2BB44E56D3}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Bookit.Client.App", "http://localhost:2428", "{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2428"
+		Debug.AspNetCompiler.PhysicalPath = "Bookit.Client.App\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2428\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2428"
+		Release.AspNetCompiler.PhysicalPath = "Bookit.Client.App\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2428\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Bookit.Client.App\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +61,24 @@ Global
 		{43CD019D-D552-4395-B845-00FB2D531EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43CD019D-D552-4395-B845-00FB2D531EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43CD019D-D552-4395-B845-00FB2D531EE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81F452FF-B77A-4C48-99C1-2FBAEAD785A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81F452FF-B77A-4C48-99C1-2FBAEAD785A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81F452FF-B77A-4C48-99C1-2FBAEAD785A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81F452FF-B77A-4C48-99C1-2FBAEAD785A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F9F60195-CE27-498B-B1EC-13DE1EB9E702} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
+		{4F727F3D-A716-4030-A6E1-0B1D359AC9B4} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
+		{B8D04782-EC58-4AFD-8445-045865883E0A} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
+		{43CD019D-D552-4395-B845-00FB2D531EE3} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
+		{81F452FF-B77A-4C48-99C1-2FBAEAD785A2} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
+		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0} = {F08F2287-CB37-4072-BBB0-1C2BB44E56D3}
 	EndGlobalSection
 EndGlobal

@@ -10,12 +10,12 @@
     using Bookit.Data.Repositories.Base;
     using Bookit.Data.Repositories.Contracts;
     using BookIt.Models;
-    
+
     public class BookItData : IBookItData
     {
         private IBookItDbContext context;
 
-        private readonly Dictionary<Type, object> repositories = new Dictionary<Type, object>();
+        private readonly IDictionary<Type, object> repositories;
 
         public BookItData()
             : this(new BookItDbContext())
@@ -25,6 +25,7 @@
         public BookItData(IBookItDbContext context)
         {
             this.context = context;
+            this.repositories = new Dictionary<Type, object>();
         }
 
         public IDeletableEntityRepository<Category> Categories
@@ -130,7 +131,7 @@
                 return (UsersRepository)this.GetRepository<AppUser>();
             }
         }
-        
+
         public IRepository<IdentityRole> Roles
         {
             get
