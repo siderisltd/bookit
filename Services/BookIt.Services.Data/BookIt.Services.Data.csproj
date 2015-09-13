@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CCEC82DB-D87A-4E01-91E9-22FECE871821}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookIt.Services.Data</RootNamespace>
+    <AssemblyName>BookIt.Services.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppointmentService.cs" />
+    <Compile Include="Contracts\IAppointmentService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\BookIt.Data.Common\BookIt.Data.Common.csproj">
+      <Project>{b8d04782-ec58-4afd-8445-045865883e0a}</Project>
+      <Name>BookIt.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\BookIt.Data.Models\BookIt.Data.Models.csproj">
+      <Project>{f9f60195-ce27-498b-b1ec-13de1eb9e702}</Project>
+      <Name>BookIt.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Bookit.Data\BookIt.Data.csproj">
+      <Project>{4f727f3d-a716-4030-a6e1-0b1d359ac9b4}</Project>
+      <Name>BookIt.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookIt.Services.Common\BookIt.Services.Common.csproj">
+      <Project>{47eef198-59e2-4f07-8310-4535180ed31b}</Project>
+      <Name>BookIt.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookIt.Services.Logic\BookIt.Services.Logic.csproj">
+      <Project>{e636df3b-9906-4e3d-a9c0-eea14d176b02}</Project>
+      <Name>BookIt.Services.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

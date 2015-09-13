@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div ng-repeat="cat in vm.categories" >
-            <span data-id="{{cat.ID}}">{{cat.Name}}</span>
+            <a data-id="{{cat.ID}}" href="/categories/{{cat.ID}}">{{cat.Name}}</a>
         </div>
     </div>
 </div>
