@@ -13,12 +13,12 @@
     public class CalendarController : ApiController
     {
         private IAppointmentService appointmentService;
-        private ILocationService locatoinService;
+        //private ILocationService locatoinService;
 
-        public CalendarController(IAppointmentService appointmentService, ILocationService locatoinService)
+        public CalendarController(IAppointmentService appointmentService)
         {
             this.appointmentService = appointmentService;
-            this.locatoinService = locatoinService;
+            //this.locatoinService = locatoinService;
         }
 
         // GET: Calendar
@@ -52,7 +52,7 @@
         {
             var newAppointment = new Appointment()
             {
-                Location = locatoinService.GetById(businessId)
+                //Location = locatoinService.GetById(businessId)
             };
 
             appointmentService.AddNew(newAppointment);

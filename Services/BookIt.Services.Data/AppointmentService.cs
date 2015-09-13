@@ -8,26 +8,27 @@
     using BookIt.Data;
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts;
+    using BookIt.Data.Common.Repositories;
 
     public class AppointmentService : IAppointmentService
     {
-        private readonly IBookItData data;
+        private readonly IRepository<Appointment> appointments;
 
-        public AppointmentService(IBookItData data)
+        public AppointmentService(IRepository<Appointment> appointments)
         {
-            this.data = data;
+            this.appointments = appointments;
         }
 
         public IQueryable<Appointment> Get(int businessId, DateTime dateTime)
         {
-            return this.data.Appointments.All()
+            return this.appointments.All()
                 .Where(a => a.BusinessId == businessId && a.Start.Date == dateTime.Date);
         }
 
         public async Task<Appointment> AddNew(Appointment appointment)
         {
-            this.data.Appointments.Add(appointment);
-            this.data.SaveChanges();
+            this.appointments.Add(appointment);
+            this.appointments.SaveChanges();
             return appointment;
         }
     }

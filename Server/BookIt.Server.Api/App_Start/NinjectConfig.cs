@@ -39,11 +39,13 @@
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
+            kernel.Bind(typeof(IBookItData)).To(typeof(BookItData));
+
             kernel.Bind<DbContext>().To<BookItDbContext>().InRequestScope();
 
             kernel.Bind(k => k
                 .From(
-                    ServerConstants.InfrastructureAssembly,
+                    //ServerConstants.InfrastructureAssembly,
                     ServerConstants.DataServicesAssembly,
                     ServerConstants.LogicServicesAssembly)
                 .SelectAllClasses()
