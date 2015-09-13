@@ -16,8 +16,7 @@
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
-
-    using BookIt.Server.Api.Models;
+    
     using BookIt.Server.Api.Providers;
     using BookIt.Server.Api.Results;
     using BookIt.Server.DataTransferModels.Account;

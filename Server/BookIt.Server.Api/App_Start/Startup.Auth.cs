@@ -13,7 +13,7 @@
 
     using Owin;
 
-    using Bookit.Data;
+    using BookIt.Data;
     using BookIt.Server.Api.Providers;
 
     public partial class Startup

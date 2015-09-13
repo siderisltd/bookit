@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using Bookit.Data;
+    using BookIt.Data;
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts;
 

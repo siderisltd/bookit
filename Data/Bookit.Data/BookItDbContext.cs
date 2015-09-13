@@ -1,4 +1,4 @@
-﻿namespace Bookit.Data
+﻿namespace BookIt.Data
 {
     using System;
     using System.Data.Entity;

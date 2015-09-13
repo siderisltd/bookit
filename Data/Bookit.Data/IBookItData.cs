@@ -1,4 +1,4 @@
-﻿namespace Bookit.Data
+﻿namespace BookIt.Data
 {
     using System;
 
@@ -11,7 +11,7 @@
     {
         IDeletableEntityRepository<Category> Categories { get; }
 
-        IDeletableEntityRepository<Business> Businesses { get; }
+        IDeletableEntityRepository<Location> Businesses { get; }
 
         IDeletableEntityRepository<Location> Locations { get; }
 

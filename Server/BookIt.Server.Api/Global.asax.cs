@@ -13,8 +13,8 @@
 
     using Newtonsoft.Json.Serialization;
 
-    using Bookit.Data;
-    using Bookit.Data.Migrations;
+    using BookIt.Data;
+    using BookIt.Data.Migrations;
     using BookIt.Server.Common.Mapping;
     using BookIt.Services.Common;
 
@@ -27,10 +27,10 @@
 
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
-            AreaRegistration.RegisterAllAreas();
+            
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
         }
     }
 }

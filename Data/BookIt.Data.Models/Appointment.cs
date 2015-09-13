@@ -16,6 +16,6 @@
 
         public int BusinessId { get; set; }
 
-        public virtual Location Business { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

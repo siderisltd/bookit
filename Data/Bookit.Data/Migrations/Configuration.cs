@@ -1,4 +1,4 @@
-namespace Bookit.Data.Migrations
+namespace BookIt.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

@@ -1,4 +1,4 @@
-﻿namespace Bookit.Data
+﻿namespace BookIt.Data
 {
     using System;
     using System.Collections.Generic;
@@ -34,11 +34,11 @@
             }
         }
 
-        public IDeletableEntityRepository<Business> Businesses
+        public IDeletableEntityRepository<Location> Businesses
         {
             get
             {
-                return this.GetDeletableEntityRepository<Business>();
+                return this.GetDeletableEntityRepository<Location>();
             }
         }
 
