@@ -14,7 +14,7 @@
 
         public DateTime? End { get; set; }
 
-        public int BusinessId { get; set; }
+        public int LocationId { get; set; }
 
         public virtual Location Location { get; set; }
     }

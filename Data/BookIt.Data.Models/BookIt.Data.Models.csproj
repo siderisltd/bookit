@@ -65,7 +65,7 @@
     <Compile Include="Street.cs" />
     <Compile Include="Appointment.cs" />
     <Compile Include="Tag.cs" />
-    <Compile Include="WorkingUnit.cs" />
+    <Compile Include="StaffUnit.cs" />
     <Compile Include="Vote.cs" />
   </ItemGroup>
   <ItemGroup>

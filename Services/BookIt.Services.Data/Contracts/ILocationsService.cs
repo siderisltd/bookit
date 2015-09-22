@@ -1,10 +1,14 @@
 ﻿namespace BookIt.Services.Data.Contracts
 {
+    using System.Linq;
+
     using BookIt.Data.Models;
     using BookIt.Services.Common;
 
-    public interface ILocationService: IService
+    public interface ILocationsService: IService
     {
+        IQueryable<Location> All();
+
         Location GetById(int businessId);
     }
 }

@@ -1,18 +1,23 @@
 ﻿namespace BookIt.Services.Data
 {
     using System;
-
+    using System.Linq;
     using BookIt.Data;
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts;
 
-    public class LocationService : ILocationService
+    public class LocationsService : ILocationsService
     {
         private readonly IBookItData data;
 
-        public LocationService(IBookItData data)
+        public LocationsService(IBookItData data)
         {
             this.data = data;
+        }
+
+        public IQueryable<Location> All()
+        {
+            return this.data.Locations.All();
         }
 
         public Location GetById(int businessId)

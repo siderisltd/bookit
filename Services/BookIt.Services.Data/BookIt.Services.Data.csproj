@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppointmentService.cs" />
-    <Compile Include="LocationService.cs" />
-    <Compile Include="Contracts\IAppointmentService.cs" />
-    <Compile Include="Contracts\ILocationService.cs" />
+    <Compile Include="AppointmentsService.cs" />
+    <Compile Include="LocationsService.cs" />
+    <Compile Include="Contracts\IAppointmentsService.cs" />
+    <Compile Include="Contracts\ILocationsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

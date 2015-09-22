@@ -8,10 +8,12 @@
     using BookIt.Data.Models;
     using BookIt.Services.Common;
 
-    public interface IAppointmentService: IService
+    public interface IAppointmentsService: IService
     {
+        IQueryable<Appointment> All();
+
         IQueryable<Appointment> Get(int businessId, DateTime dateTime);
 
-        Task<Appointment> AddNew(Appointment appointment);
+        Task<Appointment> AddNewAsync(Appointment appointment);
     }
 }
