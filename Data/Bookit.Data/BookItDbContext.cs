@@ -31,12 +31,6 @@
 
         public IDbSet<Vote> Votes { get; set; }
 
-        public IDbSet<Address> Addresses { get; set; }
-
-        public IDbSet<City> Citys { get; set; }
-
-        public IDbSet<Street> Streets { get; set; }
-
         public DbContext DbContext
         {
             get { return this; }

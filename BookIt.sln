@@ -7,28 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{D09E91
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{F08F2287-CB37-4072-BBB0-1C2BB44E56D3}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Bookit.Client.App", "http://localhost:2428", "{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}"
-	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_2428"
-		Debug.AspNetCompiler.PhysicalPath = "Bookit.Client.App\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2428\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_2428"
-		Release.AspNetCompiler.PhysicalPath = "Bookit.Client.App\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2428\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "Bookit.Client.App\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{349A974C-5B97-4D65-B3B1-01715B5A2CFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data", "Data\Bookit.Data\BookIt.Data.csproj", "{4F727F3D-A716-4030-A6E1-0B1D359AC9B4}"
@@ -51,16 +29,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.DataTransferM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.Api", "Server\BookIt.Server.Api\BookIt.Server.Api.csproj", "{2E3539A6-F485-428D-AD5E-7A0DBCAFB5CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Client.SPA", "Client\BookIt.Client.SPA\BookIt.Client.SPA.csproj", "{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{4F727F3D-A716-4030-A6E1-0B1D359AC9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F727F3D-A716-4030-A6E1-0B1D359AC9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F727F3D-A716-4030-A6E1-0B1D359AC9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -97,12 +73,15 @@ Global
 		{2E3539A6-F485-428D-AD5E-7A0DBCAFB5CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E3539A6-F485-428D-AD5E-7A0DBCAFB5CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E3539A6-F485-428D-AD5E-7A0DBCAFB5CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B859F72D-1D74-431E-9EA3-E3A2C6EE77E0} = {F08F2287-CB37-4072-BBB0-1C2BB44E56D3}
 		{4F727F3D-A716-4030-A6E1-0B1D359AC9B4} = {349A974C-5B97-4D65-B3B1-01715B5A2CFF}
 		{461D1DF0-2EF6-4C8E-8A9B-BEB0E52F924F} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
 		{47EEF198-59E2-4F07-8310-4535180ED31B} = {E690AB5B-2A0E-4E54-BC52-75393D9691E3}
@@ -112,5 +91,6 @@ Global
 		{B8D04782-EC58-4AFD-8445-045865883E0A} = {349A974C-5B97-4D65-B3B1-01715B5A2CFF}
 		{1D7EA778-86DF-4AF0-8D88-F50EBCF54A23} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
 		{2E3539A6-F485-428D-AD5E-7A0DBCAFB5CB} = {D09E918A-2FDC-44CB-A6AC-8BEE43F40869}
+		{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B} = {F08F2287-CB37-4072-BBB0-1C2BB44E56D3}
 	EndGlobalSection
 EndGlobal

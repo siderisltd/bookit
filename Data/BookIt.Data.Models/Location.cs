@@ -19,10 +19,6 @@
 
         public string Description { get; set; }
 
-        public int AddressId { get; set; }
-
-        public virtual Address Address { get; set; }
-
         public virtual ICollection<Category> Categories { get; set; }
 
         public virtual ICollection<StaffUnit> Staff { get; set; }

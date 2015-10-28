@@ -50,22 +50,6 @@
             }
         }
 
-        public IDeletableEntityRepository<Address> Addresses
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Address>();
-            }
-        }
-
-        public IDeletableEntityRepository<City> Cities
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<City>();
-            }
-        }
-
         public IDeletableEntityRepository<Comment> Comments
         {
             get
@@ -95,14 +79,6 @@
             get
             {
                 return this.GetDeletableEntityRepository<Service>();
-            }
-        }
-
-        public IDeletableEntityRepository<Street> Streets
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Street>();
             }
         }
 

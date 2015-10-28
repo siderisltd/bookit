@@ -52,17 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
     <Compile Include="AppUser.cs" />
     <Compile Include="Business.cs" />
-    <Compile Include="City.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
-    <Compile Include="Street.cs" />
     <Compile Include="Appointment.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="StaffUnit.cs" />

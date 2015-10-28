@@ -15,10 +15,6 @@
 
         IDeletableEntityRepository<Location> Locations { get; }
 
-        IDeletableEntityRepository<Address> Addresses { get; }
-
-        IDeletableEntityRepository<City> Cities { get; }
-
         IDeletableEntityRepository<Comment> Comments { get; }
 
         IDeletableEntityRepository<Customer> Customers { get; }
@@ -26,8 +22,6 @@
         IDeletableEntityRepository<Appointment> Appointments { get; }
 
         IDeletableEntityRepository<Service> Services { get; }
-
-        IDeletableEntityRepository<Street> Streets { get; }
 
         IDeletableEntityRepository<Vote> Votes { get; }
 
