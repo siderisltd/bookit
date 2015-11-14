@@ -9,31 +9,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookIt.Client", "BookIt.Cli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{349A974C-5B97-4D65-B3B1-01715B5A2CFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data", "Data\Bookit.Data\BookIt.Data.csproj", "{4F727F3D-A716-4030-A6E1-0B1D359AC9B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data", "BookIT\BookIt.Api\Data\Bookit.Data\BookIt.Data.csproj", "{4F727F3D-A716-4030-A6E1-0B1D359AC9B4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E690AB5B-2A0E-4E54-BC52-75393D9691E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.Common", "Server\BookIt.Server.Common\BookIt.Server.Common.csproj", "{461D1DF0-2EF6-4C8E-8A9B-BEB0E52F924F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.Common", "BookIT\BookIt.Api\Server\BookIt.Server.Common\BookIt.Server.Common.csproj", "{461D1DF0-2EF6-4C8E-8A9B-BEB0E52F924F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Services.Common", "Services\BookIt.Services.Common\BookIt.Services.Common.csproj", "{47EEF198-59E2-4F07-8310-4535180ED31B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Services.Common", "BookIT\BookIt.Api\Services\BookIt.Services.Common\BookIt.Services.Common.csproj", "{47EEF198-59E2-4F07-8310-4535180ED31B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Services.Data", "Services\BookIt.Services.Data\BookIt.Services.Data.csproj", "{CCEC82DB-D87A-4E01-91E9-22FECE871821}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Services.Data", "BookIT\BookIt.Api\Services\BookIt.Services.Data\BookIt.Services.Data.csproj", "{CCEC82DB-D87A-4E01-91E9-22FECE871821}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data.Models", "Data\BookIt.Data.Models\BookIt.Data.Models.csproj", "{F9F60195-CE27-498B-B1EC-13DE1EB9E702}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data.Models", "BookIT\BookIt.Api\Data\BookIt.Data.Models\BookIt.Data.Models.csproj", "{F9F60195-CE27-498B-B1EC-13DE1EB9E702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data.Common", "Data\BookIt.Data.Common\BookIt.Data.Common.csproj", "{B8D04782-EC58-4AFD-8445-045865883E0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Data.Common", "BookIT\BookIt.Api\Data\BookIt.Data.Common\BookIt.Data.Common.csproj", "{B8D04782-EC58-4AFD-8445-045865883E0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.DataTransferModels", "Server\BookIt.Server.DataTransferModels\BookIt.Server.DataTransferModels.csproj", "{1D7EA778-86DF-4AF0-8D88-F50EBCF54A23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.DataTransferModels", "BookIT\BookIt.Api\Server\BookIt.Server.DataTransferModels\BookIt.Server.DataTransferModels.csproj", "{1D7EA778-86DF-4AF0-8D88-F50EBCF54A23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.Api", "Server\BookIt.Server.Api\BookIt.Server.Api.csproj", "{2E3539A6-F485-428D-AD5E-7A0DBCAFB5CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Server.Api", "BookIT\BookIt.Api\Server\BookIt.Server.Api\BookIt.Server.Api.csproj", "{2E3539A6-F485-428D-AD5E-7A0DBCAFB5CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Client.SPA", "Client\BookIt.Client.SPA\BookIt.Client.SPA.csproj", "{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Client.SPA", "BookIT\Client\BookIt.Client.SPA\BookIt.Client.SPA.csproj", "{865FE89B-3CDE-4CC3-BB70-EA405BCAA56B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookIt.Api", "BookIt.Api", "{6974B4BF-724C-4474-92BC-B977C067AD44}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5A4EC266-2E85-4F5C-B4A6-2E64C1F25E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Api.Tests", "Tests\BookIt.Api.Tests\BookIt.Api.Tests.csproj", "{B3369BD8-BF94-4308-8FCB-9D8E74DF8673}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Api.Tests", "BookIT\BookIt.Api\Tests\BookIt.Api.Tests\BookIt.Api.Tests.csproj", "{B3369BD8-BF94-4308-8FCB-9D8E74DF8673}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
