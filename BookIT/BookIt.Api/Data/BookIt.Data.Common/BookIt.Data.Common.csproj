@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IDataSeeder.cs" />
     <Compile Include="Model\DeletableEntity.cs" />
     <Compile Include="Model\AuditInfo.cs" />
     <Compile Include="Contracts\IAuditInfo.cs" />

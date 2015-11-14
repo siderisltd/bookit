@@ -1,4 +1,6 @@
-﻿namespace BookIt.Services.Data
+﻿using BookIt.Data.Common.Contracts;
+
+namespace BookIt.Services.Data
 {
     using System;
     using Bookit.Data;
@@ -9,28 +11,28 @@
 
     public class AppointmentsService : IAppointmentsService
     {
-        private readonly IBookItData data;
+        private readonly IRepository<Appointment> data;
 
-        public AppointmentsService(IBookItData data)
+        public AppointmentsService(IRepository<Appointment> data)
         {
             this.data = data;
         }
 
         public IQueryable<Appointment> All()
         {
-            return this.data.Appointments.All();
+            return this.data.All();
         }
 
         public IQueryable<Appointment> Get(int locationId, DateTime dateTime)
         {
-            return this.data.Appointments.All()
+            return this.data.All()
                 .Where(a => a.LocationId == locationId && a.Start.Date == dateTime.Date);
         }
 
         public async Task<Appointment> AddNewAsync(Appointment appointment)
         {
-            this.data.Appointments.Add(appointment);
-            await this.data.Appointments.SaveChangesAsync();
+            this.data.Add(appointment);
+            await this.data.SaveChangesAsync();
             return appointment;
         }
     }

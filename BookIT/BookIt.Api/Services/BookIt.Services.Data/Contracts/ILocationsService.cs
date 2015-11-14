@@ -8,5 +8,7 @@
         IQueryable<Location> All();
 
         Location GetById(int businessId);
+
+        void Add(Location location);
     }
 }
