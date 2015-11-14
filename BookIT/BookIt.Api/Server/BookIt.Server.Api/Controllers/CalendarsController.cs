@@ -4,8 +4,8 @@
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
-    using Bookit.Data;
-    using BookIt.Server.DataTransferModels.Calendar;
+
+    using DataTransferModels.Calendar;
     using Data.Models;
     using Services.Data.Contracts;
 
