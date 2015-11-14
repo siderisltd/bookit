@@ -1,17 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using BookIt.Data.Models;
+using BookIt.Services.Data;
+using BookIt.Services.Data.Contracts;
 
 namespace BookIt.Server.Api.Controllers
 {
+    using System.Collections.Generic;
+    using System.Web.Http;
+
     public class ValuesController : ApiController
     {
+        private IAppointmentsService appointmentsService;
+
+        public ValuesController(IAppointmentsService appointmentsService)
+        {
+            this.appointmentsService = appointmentsService;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
+            appointmentsService.AddNewAsync(new Appointment() {Start = DateTime.Now});
             return new string[] { "value1", "value2" };
         }
 

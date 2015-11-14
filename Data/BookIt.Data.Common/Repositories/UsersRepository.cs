@@ -1,9 +1,8 @@
 ﻿namespace BookIt.Data.Common.Repositories
 {
-    using System;
-    using System.Data.Entity;
     using System.Linq;
-
+    using System.Data.Entity;
+    using BookIt.Data.Common.Contracts;
     using Microsoft.AspNet.Identity.EntityFramework;
 
     public class UsersRepository : EfGenericRepository<IdentityUser>, IUsersRepository

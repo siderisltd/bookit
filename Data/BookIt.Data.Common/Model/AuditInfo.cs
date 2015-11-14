@@ -3,6 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using BookIt.Data.Common.Contracts;
 
     public class AuditInfo : IAuditInfo
     {

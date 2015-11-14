@@ -1,16 +1,15 @@
 ﻿namespace BookIt.Data.Common.Repositories
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Linq;
-
-    using BookIt.Data.Common.Model;
+    using System.Data.Entity;
+    using BookIt.Data.Common.Contracts;
 
     public class DeletableEntityRepository<T> : EfGenericRepository<T>, IDeletableEntityRepository<T> where T : class, IDeletableEntity
     {
+        //TODO: check
         public DeletableEntityRepository(DbContext context)
-            :base(context)
+            : base(context)
         {
         }
 

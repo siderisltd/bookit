@@ -1,14 +1,11 @@
 ﻿namespace BookIt.Services.Data.Contracts
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
     using BookIt.Data.Models;
-    using BookIt.Services.Common;
 
-    public interface IAppointmentsService: IService
+    public interface IAppointmentsService
     {
         IQueryable<Appointment> All();
 

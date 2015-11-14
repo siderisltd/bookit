@@ -1,19 +1,12 @@
 ﻿namespace BookIt.Server.Api
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
+    using Bookit.Data;
     using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.Cookies;
-    using Microsoft.Owin.Security.Google;
     using Microsoft.Owin.Security.OAuth;
-
     using Owin;
-
-    using BookIt.Data;
     using BookIt.Server.Api.Providers;
 
     public partial class Startup

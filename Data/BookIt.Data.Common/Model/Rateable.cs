@@ -1,12 +1,11 @@
 ﻿namespace BookIt.Data.Common.Model
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using BookIt.Data.Common.Contracts;
 
     public abstract class Rateable : DeletableEntity, IDeletableEntity, IAuditInfo, IRateable, ICommentable
     {
-        public Rateable()
+        protected Rateable()
         {
             this.Votes = new HashSet<IVote>();
             this.Comments = new HashSet<IComment>();

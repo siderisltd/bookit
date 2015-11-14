@@ -13,6 +13,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using BookIt.Client.SPA.Areas.HelpPage.ModelDescriptions;
 using BookIt.Client.SPA.Areas.HelpPage.Models;
+using BookIt.Client.SPA.Areas.HelpPage.SampleGeneration;
 
 namespace BookIt.Client.SPA.Areas.HelpPage
 {

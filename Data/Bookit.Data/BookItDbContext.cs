@@ -1,17 +1,13 @@
-﻿namespace BookIt.Data
+﻿namespace Bookit.Data
 {
-    using System;
     using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
+    using BookIt.Data.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    using BookIt.Data.Models;
-    
     public class BookItDbContext : IdentityDbContext<ApplicationUser>, IBookItDbContext
     {
         public BookItDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("BookIT", throwIfV1Schema: false)
         {
         }
 
@@ -31,26 +27,12 @@
 
         public IDbSet<Vote> Votes { get; set; }
 
-        public DbContext DbContext
-        {
-            get { return this; }
-        }
-
         public static BookItDbContext Create()
         {
             return new BookItDbContext();
         }
 
-        public override int SaveChanges()
-        {
-            return base.SaveChanges();
-        }
-
-        public void ClearDatabase()
-        {
-            throw new NotImplementedException();
-        }
-
+        //TODO: ask what is this
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();

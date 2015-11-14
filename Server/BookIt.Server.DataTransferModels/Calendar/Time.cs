@@ -1,7 +1,8 @@
-﻿namespace BookIt.Server.Api.Models
-{
-    using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
+namespace BookIt.Server.DataTransferModels.Calendar
+{
+    //TODO: Binding model / View model?
     [DataContract]
     public class Time
     {

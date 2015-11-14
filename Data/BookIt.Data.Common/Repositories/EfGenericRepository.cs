@@ -1,11 +1,12 @@
 ﻿namespace BookIt.Data.Common.Repositories
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
+    using System.Data.Entity;
     using System.Threading.Tasks;
+    using System.Data.Entity.Infrastructure;
+    using System.ComponentModel.DataAnnotations;
+    using BookIt.Data.Common.Contracts;
 
     public class EfGenericRepository<T> : IRepository<T> where T : class
     {

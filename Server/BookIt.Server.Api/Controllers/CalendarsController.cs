@@ -4,25 +4,16 @@
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
-
-    using Data;
+    using Bookit.Data;
+    using BookIt.Server.DataTransferModels.Calendar;
     using Data.Models;
-    using Models;
     using Services.Data.Contracts;
 
     public class CalendarsController : ApiController
     {
-        private readonly IBookItData data;
+        //private readonly IBookItData data;
         private readonly IAppointmentsService appointmentsService;
         private readonly ILocationsService locationsService;
-
-        // TODO: remove after configing Ninject
-        public CalendarsController()
-        {
-            this.data = new Data.BookItData();
-            this.appointmentsService = new Services.Data.AppointmentsService(this.data);
-            this.locationsService = new Services.Data.LocationsService(this.data);
-        }
 
         public CalendarsController(IAppointmentsService appointmentsService, ILocationsService locationsService)
         {

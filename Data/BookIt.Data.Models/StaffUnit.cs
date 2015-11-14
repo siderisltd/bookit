@@ -2,20 +2,26 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations;
     using BookIt.Data.Common.Model;
+    using BookIt.Data.Common.Contracts;
 
     public class StaffUnit : Rateable, IDeletableEntity, IAuditInfo, ICommentable, IRateable
     {
+        private ICollection<Service> providedServices;
+
+        private ICollection<DateTime> schedule;
+
         public StaffUnit()
-            : base()
         {
-            this.ServicesProvIded = new HashSet<Service>();
-            this.Schedule = new HashSet<DateTime>();
+            this.providedServices = new HashSet<Service>();
+            this.schedule = new HashSet<DateTime>();
         }
 
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         public string Descriptoin { get; set; }
@@ -24,8 +30,16 @@
 
         public virtual ApplicationUser Employee { get; set; }
 
-        public virtual ICollection<Service> ServicesProvIded { get; set; }
+        public virtual ICollection<Service> ProvidedServices
+        {
+            get { return this.providedServices; }
+            set { this.providedServices = value; }
+        }
 
-        public virtual ICollection<DateTime> Schedule { get; set; }
+        public virtual ICollection<DateTime> Schedule
+        {
+            get { return this.schedule; }
+            set { this.schedule = value; }
+        }
     }
 }

@@ -1,23 +1,53 @@
-﻿namespace BookIt.Server.Api.App_Start
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BookIt.Server.Api.NinjectConfig), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(BookIt.Server.Api.NinjectConfig), "Stop")]
+
+namespace BookIt.Server.Api
 {
     using System;
-    using System.Data.Entity;
     using System.Web;
-
-    using Ninject;
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject.Extensions.Conventions;
+    using Ninject;
+    using Bookit.Data;
+    using Microsoft.Owin.Security;
+    using Microsoft.Owin.Security.DataHandler;
+    using Microsoft.Owin.Security.DataHandler.Encoder;
+    using Microsoft.Owin.Security.DataHandler.Serializer;
     using Ninject.Web.Common;
-
-    using BookIt.Data;
+    using BookIt.Server.Common;
+    using BookIt.Data.Common.Contracts;
     using BookIt.Data.Common.Repositories;
     using BookIt.Services.Common;
-    using BookIt.Services.Logic;
+    using BookIt.Services.Data;
+    using BookIt.Services.Data.Contracts;
 
-    using ServerConstants = BookIt.Server.Common.Constants;
-
-    public static class NinjectConfig
+    public static class NinjectConfig 
     {
-        public static IKernel CreateKernel()
+        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+
+        /// <summary>
+        /// Starts the application
+        /// </summary>
+        public static void Start() 
+        {
+            DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
+            DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+            bootstrapper.Initialize(CreateKernel);
+        }
+        
+        /// <summary>
+        /// Stops the application.
+        /// </summary>
+        public static void Stop()
+        {
+            bootstrapper.ShutDown();
+        }
+        
+        /// <summary>
+        /// Creates the kernel that will manage your application.
+        /// </summary>
+        /// <returns>The created kernel.</returns>
+        private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
             try
@@ -25,7 +55,7 @@
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                ObjectFactory.Initialize(kernel);
+                ObjectFactory.Innitialize(kernel);
                 RegisterServices(kernel);
                 return kernel;
             }
@@ -36,21 +66,25 @@
             }
         }
 
+        /// <summary>
+        /// Load your modules or register your services here!
+        /// </summary>
+        /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            // kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
+
+            kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
+            kernel.Bind(typeof(IBookItDbContext)).To(typeof(BookItDbContext)).InRequestScope();
             kernel.Bind(typeof(IBookItData)).To(typeof(BookItData));
 
-            kernel.Bind<DbContext>().To<BookItDbContext>().InRequestScope();
-
-            kernel.Bind(k => k
-                .From(
-                    //ServerConstants.InfrastructureAssembly,
-                    ServerConstants.DataServicesAssembly,
-                    ServerConstants.LogicServicesAssembly)
+            kernel.Bind(x => x
+                .From(Services.Common.Constants.ServicesAssembly)
                 .SelectAllClasses()
-                .InheritedFrom<IService>()
                 .BindDefaultInterface());
-        }
+
+            kernel.Bind(typeof(ISecureDataFormat<AuthenticationTicket>)).To(typeof(SecureDataFormat<AuthenticationTicket>));
+            kernel.Bind(typeof(ITextEncoder)).To(typeof(Base64UrlTextEncoder));
+            kernel.Bind(typeof(IDataSerializer<AuthenticationTicket>)).To(typeof(TicketSerializer));
+        }        
     }
 }

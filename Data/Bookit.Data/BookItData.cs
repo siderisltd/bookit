@@ -1,24 +1,17 @@
-﻿namespace BookIt.Data
+﻿namespace Bookit.Data
 {
     using System;
     using System.Collections.Generic;
-
-    using Microsoft.AspNet.Identity.EntityFramework;
-
-    using BookIt.Data.Common.Model;
+    using BookIt.Data.Common.Contracts;
     using BookIt.Data.Common.Repositories;
     using BookIt.Data.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class BookItData : IBookItData
     {
-        private IBookItDbContext context;
+        private readonly IBookItDbContext context;
 
         private readonly IDictionary<Type, object> repositories;
-
-        public BookItData()
-            : this(new BookItDbContext())
-        {
-        }
 
         public BookItData(IBookItDbContext context)
         {
@@ -26,101 +19,29 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
-        public IDeletableEntityRepository<Category> Categories
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Category>();
-            }
-        }
+        public IDeletableEntityRepository<Category> Categories => this.GetDeletableEntityRepository<Category>();
 
-        public IDeletableEntityRepository<Location> Businesses
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Location>();
-            }
-        }
+        public IDeletableEntityRepository<Location> Businesses => this.GetDeletableEntityRepository<Location>();
 
-        public IDeletableEntityRepository<Location> Locations
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Location>();
-            }
-        }
+        public IDeletableEntityRepository<Location> Locations => this.GetDeletableEntityRepository<Location>();
 
-        public IDeletableEntityRepository<Comment> Comments
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Comment>();
-            }
-        }
+        public IDeletableEntityRepository<Comment> Comments => this.GetDeletableEntityRepository<Comment>();
 
-        public IDeletableEntityRepository<Customer> Customers
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Customer>();
-            }
-        }
+        public IDeletableEntityRepository<Customer> Customers => this.GetDeletableEntityRepository<Customer>();
 
-        public IDeletableEntityRepository<Appointment> Appointments
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Appointment>();
-            }
-        }
+        public IDeletableEntityRepository<Appointment> Appointments => this.GetDeletableEntityRepository<Appointment>();
 
-        public IDeletableEntityRepository<Service> Services
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Service>();
-            }
-        }
+        public IDeletableEntityRepository<Service> Services => this.GetDeletableEntityRepository<Service>();
 
-        public IDeletableEntityRepository<Vote> Votes
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<Vote>();
-            }
-        }
+        public IDeletableEntityRepository<Vote> Votes => this.GetDeletableEntityRepository<Vote>();
 
-        public IDeletableEntityRepository<StaffUnit> StaffUnits
-        {
-            get
-            {
-                return this.GetDeletableEntityRepository<StaffUnit>();
-            }
-        }
+        public IDeletableEntityRepository<StaffUnit> StaffUnits => this.GetDeletableEntityRepository<StaffUnit>();
 
-        public IUsersRepository Users
-        {
-            get
-            {
-                return (UsersRepository)this.GetRepository<ApplicationUser>();
-            }
-        }
+        public IUsersRepository Users => (UsersRepository)this.GetRepository<ApplicationUser>();
 
-        public IRepository<IdentityRole> Roles
-        {
-            get
-            {
-                return this.GetRepository<IdentityRole>();
-            }
-        }
-
-        public IBookItDbContext Context
-        {
-            get
-            {
-                return this.context;
-            }
-        }
+        public IRepository<IdentityRole> Roles => this.GetRepository<IdentityRole>();
+   
+        public IBookItDbContext Context => this.context;
 
         /// <summary>
         /// Saves all changes made in this context to the underlying database.

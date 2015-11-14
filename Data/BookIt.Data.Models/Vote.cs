@@ -1,7 +1,7 @@
 ﻿namespace BookIt.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-
+    using BookIt.Data.Common.Contracts;
     using BookIt.Data.Common.Model;
 
     public class Vote : DeletableEntity, IDeletableEntity, IVote

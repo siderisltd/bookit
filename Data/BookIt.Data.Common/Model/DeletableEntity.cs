@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using BookIt.Data.Common.Contracts;
 
     public abstract class DeletableEntity : AuditInfo, IDeletableEntity
     {

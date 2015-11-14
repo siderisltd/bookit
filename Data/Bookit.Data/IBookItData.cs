@@ -1,11 +1,9 @@
-﻿namespace BookIt.Data
+﻿namespace Bookit.Data
 {
     using System;
-
-    using Microsoft.AspNet.Identity.EntityFramework;   
-    
-    using BookIt.Data.Common.Repositories;
+    using BookIt.Data.Common.Contracts;
     using BookIt.Data.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public interface IBookItData : IDisposable
     {

@@ -8,30 +8,24 @@
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Http;
-
-    using System.Web.Http.ModelBinding;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OAuth;
-    
-    using BookIt.Server.Api.Providers;
-    using BookIt.Server.Api.Results;
-    using BookIt.Server.DataTransferModels.Account;
     using BookIt.Data.Models;
+    using BookIt.Server.Api.Results;
+    using BookIt.Server.Api.Providers;
+    using BookIt.Server.DataTransferModels.Account.BindingModels;
+    using BookIt.Server.DataTransferModels.Account.ViewModels;
 
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
-        private ApplicationUserManager _userManager;
-
-        public AccountController()
-        {
-        }
+        private ApplicationUserManager userManager;
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
@@ -44,11 +38,11 @@
         {
             get
             {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
-                _userManager = value;
+                userManager = value;
             }
         }
 
@@ -378,10 +372,10 @@
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && _userManager != null)
+            if (disposing && userManager != null)
             {
-                _userManager.Dispose();
-                _userManager = null;
+                userManager.Dispose();
+                userManager = null;
             }
 
             base.Dispose(disposing);

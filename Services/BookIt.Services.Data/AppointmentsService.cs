@@ -1,14 +1,11 @@
 ﻿namespace BookIt.Services.Data
 {
     using System;
-    using System.Collections.Generic;
+    using Bookit.Data;
     using System.Linq;
     using System.Threading.Tasks;
-
-    using BookIt.Data;
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts;
-    using BookIt.Data.Common.Repositories;
 
     public class AppointmentsService : IAppointmentsService
     {
@@ -33,7 +30,7 @@
         public async Task<Appointment> AddNewAsync(Appointment appointment)
         {
             this.data.Appointments.Add(appointment);
-            this.data.Appointments.SaveChanges();
+            await this.data.Appointments.SaveChangesAsync();
             return appointment;
         }
     }

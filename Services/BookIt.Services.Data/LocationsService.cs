@@ -1,8 +1,7 @@
 ﻿namespace BookIt.Services.Data
 {
-    using System;
     using System.Linq;
-    using BookIt.Data;
+    using Bookit.Data;
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts;
 

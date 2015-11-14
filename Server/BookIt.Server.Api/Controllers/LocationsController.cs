@@ -2,26 +2,27 @@
 {
     using System.Linq;
     using System.Web.Http;
-
     using Services.Data.Contracts;
+    using BookIt.Server.DataTransferModels.Location.ViewModels;
+    using AutoMapper.QueryableExtensions;
 
+    [Authorize]
     public class LocationsController : ApiController
     {
-        private ILocationsService locationsService;
-        
-        public LocationsController()
-            :this(new Services.Data.LocationsService(new Data.BookItData()))
-        {
-        }
+        private readonly ILocationsService locationsService;
 
         public LocationsController(ILocationsService locationsService)
         {
             this.locationsService = locationsService;
         }
 
+        [AllowAnonymous]
         public IHttpActionResult Get()
         {
-            var result = this.locationsService.All().ToList();
+            var result = this.locationsService
+                .All()
+                .ProjectTo<LocationDetailsViewModel>()
+                .ToList();
             return this.Ok(result);
         }
     }
