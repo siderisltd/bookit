@@ -67,8 +67,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AppointmentsServiceTests.cs" />
-    <Compile Include="LocationServiceTests.cs" />
+    <Compile Include="DataServiceTests.cs" />
     <Compile Include="ObjectsFactory\InMemoryRepository.cs" />
     <Compile Include="ObjectsFactory\TestObjectFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

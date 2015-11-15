@@ -61,11 +61,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppointmentsService.cs" />
-    <Compile Include="LocationsService.cs" />
+    <Compile Include="Services\AppointmentsService.cs" />
+    <Compile Include="Services\BusinessesService.cs" />
+    <Compile Include="Contracts\IBusinessesService.cs" />
+    <Compile Include="Contracts\ICategoriesService.cs" />
+    <Compile Include="Contracts\ICommentsService.cs" />
+    <Compile Include="Contracts\ICustomersService.cs" />
+    <Compile Include="Contracts\IServicesService.cs" />
+    <Compile Include="Contracts\IStaffUnitsService.cs" />
+    <Compile Include="Contracts\ITagsService.cs" />
+    <Compile Include="Contracts\IVotesService.cs" />
+    <Compile Include="Contracts\master\IService.cs" />
+    <Compile Include="Services\CategoriesService.cs" />
+    <Compile Include="Services\CommentsService.cs" />
+    <Compile Include="Services\CustomersService.cs" />
+    <Compile Include="Services\LocationsService.cs" />
     <Compile Include="Contracts\IAppointmentsService.cs" />
     <Compile Include="Contracts\ILocationsService.cs" />
+    <Compile Include="Services\master\DataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServicesService.cs" />
+    <Compile Include="Services\StaffUnitsService.cs" />
+    <Compile Include="Services\TagsService.cs" />
+    <Compile Include="Services\VotesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\BookIt.Data.Common\BookIt.Data.Common.csproj">

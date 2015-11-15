@@ -2,15 +2,11 @@
 {
     using System;
     using System.Linq;
-    using System.Threading.Tasks;
     using BookIt.Data.Models;
+    using BookIt.Services.Data.Contracts.master;
 
-    public interface IAppointmentsService
+    public interface IAppointmentsService : IService<Appointment>
     {
-        IQueryable<Appointment> All();
-
         IQueryable<Appointment> Get(int businessId, DateTime dateTime);
-
-        Task<Appointment> AddNewAsync(Appointment appointment);
     }
 }

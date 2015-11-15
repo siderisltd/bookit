@@ -3,7 +3,7 @@
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts.master;
 
-    public interface ILocationsService : IService<Location>
+    public interface IVotesService : IService<Vote>
     {
     }
 }
