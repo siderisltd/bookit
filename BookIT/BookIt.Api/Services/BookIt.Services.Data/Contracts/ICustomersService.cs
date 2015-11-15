@@ -3,7 +3,7 @@
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts.master;
 
-    public interface ICustomersService : IService<Customer>
+    public interface ICustomersService : IDataService<Customer>
     {
     }
 }

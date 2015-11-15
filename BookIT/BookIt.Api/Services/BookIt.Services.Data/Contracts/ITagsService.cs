@@ -3,7 +3,7 @@
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts.master;
 
-    public interface ITagsService : IService<Tag>
+    public interface ITagsService : IDataService<Tag>
     {
     }
 }

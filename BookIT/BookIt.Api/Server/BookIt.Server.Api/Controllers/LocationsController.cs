@@ -16,13 +16,25 @@
             this.locationsService = locationsService;
         }
 
-        [AllowAnonymous]
+        // GET api/locations
         public IHttpActionResult Get()
         {
             var result = this.locationsService
                 .All()
                 .ProjectTo<LocationDetailsViewModel>()
                 .ToList();
+
+            return this.Ok(result);
+        }
+
+        // GET api/locations
+        public IHttpActionResult Post()
+        {
+            var result = this.locationsService
+                .All()
+                .ProjectTo<LocationDetailsViewModel>()
+                .ToList();
+
             return this.Ok(result);
         }
     }

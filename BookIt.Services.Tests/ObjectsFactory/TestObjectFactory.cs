@@ -4,7 +4,7 @@
     using BookIt.Data.Models;
 
     //TODO: Add needed properties for testing
-    public static class TestObjectFactory
+    internal static class TestObjectFactory
     {
         public static InMemoryRepository<ApplicationUser> GetApplicationUserRepository(int count = 50)
         {

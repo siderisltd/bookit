@@ -6,7 +6,7 @@
     using BookIt.Services.Data.Services.master;
     using BookIt.Data.Common.Contracts;
 
-    public class CategoriesService : DataService<Category>, ICategoriesService, IService<Category>
+    public class CategoriesService : DataService<Category>, ICategoriesService, IDataService<Category>
     {
         private readonly IRepository<Category> data;
 

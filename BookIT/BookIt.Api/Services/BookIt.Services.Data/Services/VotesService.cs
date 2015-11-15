@@ -6,7 +6,7 @@
     using BookIt.Services.Data.Services.master;
     using BookIt.Data.Common.Contracts;
 
-    public class VotesService : DataService<Vote>, IVotesService, IService<Vote>
+    public class VotesService : DataService<Vote>, IVotesService, IDataService<Vote>
     {
         private readonly IRepository<Vote> data;
 

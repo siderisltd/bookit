@@ -8,7 +8,7 @@
     using BookIt.Data.Common.Contracts;
     using BookIt.Services.Data.Contracts.master;
 
-    public class AppointmentsService : DataService<Appointment>, IAppointmentsService, IService<Appointment>
+    public class AppointmentsService : DeletableService<Appointment>, IAppointmentsService, IDataService<Appointment>
     {
         private readonly IRepository<Appointment> data;
 

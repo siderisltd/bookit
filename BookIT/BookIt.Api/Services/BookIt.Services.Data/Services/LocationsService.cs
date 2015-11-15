@@ -6,7 +6,7 @@
     using Contracts;
     using Contracts.master;
 
-    public class LocationsService : DataService<Location>, ILocationsService, IService<Location>
+    public class LocationsService : DataService<Location>, ILocationsService, IDataService<Location>
     {
         private readonly IRepository<Location> data;
 

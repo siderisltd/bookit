@@ -6,7 +6,7 @@
     using BookIt.Data.Models;
     using BookIt.Services.Data.Services.master;
 
-    public class BusinessesService : DataService<Business>, IBusinessesService, IService<Business>
+    public class BusinessesService : DataService<Business>, IBusinessesService, IDataService<Business>
     {
         private readonly IRepository<Business> data;
 

@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\master\IDataService.cs" />
+    <Compile Include="Contracts\master\IDeletableService.cs" />
     <Compile Include="Services\AppointmentsService.cs" />
     <Compile Include="Services\BusinessesService.cs" />
     <Compile Include="Contracts\IBusinessesService.cs" />
@@ -71,7 +73,6 @@
     <Compile Include="Contracts\IStaffUnitsService.cs" />
     <Compile Include="Contracts\ITagsService.cs" />
     <Compile Include="Contracts\IVotesService.cs" />
-    <Compile Include="Contracts\master\IService.cs" />
     <Compile Include="Services\CategoriesService.cs" />
     <Compile Include="Services\CommentsService.cs" />
     <Compile Include="Services\CustomersService.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Contracts\ILocationsService.cs" />
     <Compile Include="Services\master\DataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\master\DeletableService.cs" />
     <Compile Include="Services\ServicesService.cs" />
     <Compile Include="Services\StaffUnitsService.cs" />
     <Compile Include="Services\TagsService.cs" />

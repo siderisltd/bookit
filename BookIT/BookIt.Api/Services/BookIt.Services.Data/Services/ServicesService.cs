@@ -6,7 +6,7 @@
     using BookIt.Services.Data.Contracts.master;
     using BookIt.Services.Data.Services.master;
 
-    public class ServicesService : DataService<Service>, IServicesService, IService<Service>
+    public class ServicesService : DataService<Service>, IServicesService, IDataService<Service>
     {
         private readonly IRepository<Service> data;
 

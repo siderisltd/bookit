@@ -6,7 +6,7 @@
     using BookIt.Services.Data.Contracts.master;
     using BookIt.Services.Data.Services.master;
 
-    public class TagsService : DataService<Tag>, ITagsService, IService<Tag>
+    public class TagsService : DataService<Tag>, ITagsService, IDataService<Tag>
     {
         private readonly IRepository<Tag> data;
 

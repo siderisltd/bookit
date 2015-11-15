@@ -6,7 +6,7 @@
     using BookIt.Services.Data.Contracts.master;
     using BookIt.Services.Data.Services.master;
 
-    public class CommentsService : DataService<Comment>, ICommentsService, IService<Comment>
+    public class CommentsService : DataService<Comment>, ICommentsService, IDataService<Comment>
     {
         private readonly IRepository<Comment> data;
 

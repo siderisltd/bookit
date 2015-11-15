@@ -3,7 +3,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public interface IService<T>
+    public interface IDataService<T>
     {
         IQueryable<T> All();
 

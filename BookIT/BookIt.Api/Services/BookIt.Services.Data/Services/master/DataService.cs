@@ -5,7 +5,7 @@
     using BookIt.Data.Common.Contracts;
     using BookIt.Services.Data.Contracts.master;
 
-    public class DataService<T> : IService<T> where T : class
+    public class DataService<T> : IDataService<T> where T : class
     {
         private IRepository<T> data;
 

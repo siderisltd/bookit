@@ -5,7 +5,7 @@
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts.master;
 
-    public interface IAppointmentsService : IService<Appointment>
+    public interface IAppointmentsService : IDeletableService<Appointment>, IDataService<Appointment>
     {
         IQueryable<Appointment> Get(int businessId, DateTime dateTime);
     }
