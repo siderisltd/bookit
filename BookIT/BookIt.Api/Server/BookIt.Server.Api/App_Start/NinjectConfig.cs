@@ -82,49 +82,50 @@ namespace BookIt.Server.Api
 
             //kernel.Bind(typeof(IDeletableDataService<>)).To(typeof(DeletableDataService<>));
 
+            //kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
+            //kernel.Bind(typeof(IDataService<>)).To(typeof(DataService<>));
+            //kernel.Bind(typeof(IDeletableService<>)).To(typeof(DeletableService<>));
+
             kernel.Bind(x => x
                 .From("BookIt.Data")
                 .SelectAllClasses()
-                .BindDefaultInterface());
+                 .BindAllInterfaces());
 
             kernel.Bind(x => x
                 .From("BookIt.Data.Common")
                 .SelectAllClasses()
-                .BindDefaultInterface());
+                 .BindAllInterfaces());
 
             kernel.Bind(x => x
                 .From("BookIt.Data.Models")
                 .SelectAllClasses()
-                .BindDefaultInterface());
+              .BindAllInterfaces());
 
             kernel.Bind(x => x
                 .From("BookIt.Server.Api")
                 .SelectAllClasses()
-                .BindDefaultInterface());
+                .BindAllInterfaces());
 
             kernel.Bind(x => x
                 .From("BookIt.Server.Common")
                 .SelectAllClasses()
-                .BindDefaultInterface());
+                .BindAllInterfaces());
 
             kernel.Bind(x => x
                 .From("BookIt.Server.DataTransferModels")
                 .SelectAllClasses()
-                .BindDefaultInterface());
+               .BindAllInterfaces());
 
             kernel.Bind(x => x
                 .From("BookIt.Services.Common")
                 .SelectAllClasses()
-                .BindDefaultInterface());
+               .BindAllInterfaces());
 
             kernel.Bind(x => x
                  .From("BookIt.Services.Data")
                  .SelectAllClasses()
-                 .BindDefaultInterface());
+              .BindAllInterfaces());
 
-            kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
-            kernel.Bind(typeof(IDataService<>)).To(typeof(DataService<>));
-            kernel.Bind(typeof(IDeletableService<>)).To(typeof(DeletableService<>));
 
 
             kernel.Bind(typeof(ISecureDataFormat<AuthenticationTicket>)).To(typeof(SecureDataFormat<AuthenticationTicket>));
