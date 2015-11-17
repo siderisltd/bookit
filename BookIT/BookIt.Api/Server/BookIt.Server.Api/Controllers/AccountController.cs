@@ -22,12 +22,17 @@
     using BookIt.Server.DataTransferModels.Account.BindingModels;
     using BookIt.Server.DataTransferModels.Account.ViewModels;
 
+    //TODO: Extract service and the logic from Startup.Auth
     [Authorize]
-    [RoutePrefix("api/Account")]
+    [RoutePrefix("bookitApi/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager userManager;
+
+        public AccountController()
+        {
+        }
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
@@ -328,8 +333,10 @@
             }
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            IdentityResult result;
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            result = await UserManager.CreateAsync(user, model.Password);
+
 
             if (!result.Succeeded)
             {

@@ -12,6 +12,11 @@
     // You can add profile data for the user by adding more properties to your AppUser class, please visit http://go.microsoft.com/fwlink/?LinkId=317594 to learn more.
     public class ApplicationUser : IdentityUser, IDeletableEntity, IAuditInfo
     {
+        public ApplicationUser()
+        {
+            this.CreatedOn = DateTime.Now;
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -30,10 +35,10 @@
 
         public bool IsDeleted { get; set; }
 
-        [DataType(DataType.DateTime)]
+       // [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }
 
-        [DataType(DataType.DateTime)]
+       // [DataType(DataType.DateTime)]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>

@@ -82,9 +82,9 @@ namespace BookIt.Server.Api
                 .SelectAllClasses()
                 .BindDefaultInterface());
 
-            kernel.Bind(typeof(ISecureDataFormat<AuthenticationTicket>)).To(typeof(SecureDataFormat<AuthenticationTicket>));
-            kernel.Bind(typeof(ITextEncoder)).To(typeof(Base64UrlTextEncoder));
-            kernel.Bind(typeof(IDataSerializer<AuthenticationTicket>)).To(typeof(TicketSerializer));
+            //kernel.Bind(typeof(ISecureDataFormat<AuthenticationTicket>)).To(typeof(SecureDataFormat<AuthenticationTicket>));
+            //kernel.Bind(typeof(ITextEncoder)).To(typeof(Base64UrlTextEncoder));
+            //kernel.Bind(typeof(IDataSerializer<AuthenticationTicket>)).To(typeof(TicketSerializer));
         }        
     }
 }

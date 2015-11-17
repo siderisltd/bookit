@@ -7,6 +7,7 @@
     using AutoMapper.QueryableExtensions;
 
     [Authorize]
+    [RoutePrefix("bookitApi/Locations")]
     public class LocationsController : ApiController
     {
         private readonly ILocationsService locationsService;
