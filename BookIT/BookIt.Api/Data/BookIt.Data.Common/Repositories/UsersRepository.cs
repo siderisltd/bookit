@@ -16,5 +16,10 @@
         {
             return this.All().FirstOrDefault(x => x.UserName == username);
         }
+
+        public IdentityUser GetById(string id)
+        {
+            return this.All().FirstOrDefault(x => x.Id == id);
+        }
     }
 }

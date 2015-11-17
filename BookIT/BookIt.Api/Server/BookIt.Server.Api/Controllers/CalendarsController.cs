@@ -4,13 +4,14 @@
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
+
     using DataTransferModels.Calendar;
     using Data.Models;
     using Services.Data.Contracts;
 
-    [Authorize]
     public class CalendarsController : ApiController
     {
+        //private readonly IBookItData data;
         private readonly IAppointmentsService appointmentsService;
         private readonly ILocationsService locationsService;
 
@@ -20,7 +21,7 @@
             this.locationsService = locationsService;
         }
 
-        // GET api/calendars
+        // GET: Calendar
         public IHttpActionResult Get(int year, int month, int day, [FromBody]int businessId)
         {
             var date = new DateTime(year, month, day);
@@ -29,7 +30,7 @@
             return this.Ok(model);
         }
 
-        // POST api/calendars/1993/7/26
+        // [Authorize]
         [HttpPost]
         public async Task<IHttpActionResult> Post(int year, int month, int day, [FromBody]int locationId, [FromBody]TimeFrame timeFrame)
         {

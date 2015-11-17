@@ -1,6 +1,3 @@
-using BookIt.Services.Data.Contracts.master;
-using BookIt.Services.Data.Services.master;
-
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BookIt.Server.Api.NinjectConfig), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(BookIt.Server.Api.NinjectConfig), "Stop")]
 
@@ -76,57 +73,14 @@ namespace BookIt.Server.Api
         private static void RegisterServices(IKernel kernel)
         {
 
-
-            //kernel.Bind(typeof(IBookItDbContext)).To(typeof(BookItDbContext)).InRequestScope();
-            //kernel.Bind(typeof(IBookItData)).To(typeof(BookItData));
-
-            //kernel.Bind(typeof(IDeletableDataService<>)).To(typeof(DeletableDataService<>));
-
-            //kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
-            //kernel.Bind(typeof(IDataService<>)).To(typeof(DataService<>));
-            //kernel.Bind(typeof(IDeletableService<>)).To(typeof(DeletableService<>));
+            kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
+            kernel.Bind(typeof(IBookItDbContext)).To(typeof(BookItDbContext)).InRequestScope();
+            kernel.Bind(typeof(IBookItData)).To(typeof(BookItData));
 
             kernel.Bind(x => x
-                .From("BookIt.Data")
+                .From(Services.Common.Constants.ServicesAssembly)
                 .SelectAllClasses()
-                 .BindAllInterfaces());
-
-            kernel.Bind(x => x
-                .From("BookIt.Data.Common")
-                .SelectAllClasses()
-                 .BindAllInterfaces());
-
-            kernel.Bind(x => x
-                .From("BookIt.Data.Models")
-                .SelectAllClasses()
-              .BindAllInterfaces());
-
-            kernel.Bind(x => x
-                .From("BookIt.Server.Api")
-                .SelectAllClasses()
-                .BindAllInterfaces());
-
-            kernel.Bind(x => x
-                .From("BookIt.Server.Common")
-                .SelectAllClasses()
-                .BindAllInterfaces());
-
-            kernel.Bind(x => x
-                .From("BookIt.Server.DataTransferModels")
-                .SelectAllClasses()
-               .BindAllInterfaces());
-
-            kernel.Bind(x => x
-                .From("BookIt.Services.Common")
-                .SelectAllClasses()
-               .BindAllInterfaces());
-
-            kernel.Bind(x => x
-                 .From("BookIt.Services.Data")
-                 .SelectAllClasses()
-              .BindAllInterfaces());
-
-
+                .BindDefaultInterface());
 
             kernel.Bind(typeof(ISecureDataFormat<AuthenticationTicket>)).To(typeof(SecureDataFormat<AuthenticationTicket>));
             kernel.Bind(typeof(ITextEncoder)).To(typeof(Base64UrlTextEncoder));

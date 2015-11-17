@@ -5,5 +5,7 @@
     public interface IUsersRepository : IRepository<IdentityUser>
     {
         IdentityUser GetByUsername(string username);
+
+        IdentityUser GetById(string id);
     }
 }

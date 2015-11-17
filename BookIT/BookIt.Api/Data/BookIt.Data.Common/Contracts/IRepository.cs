@@ -7,7 +7,7 @@
     {
         IQueryable<T> All();
 
-        T GetById(object id);
+        T GetById(int id);
 
         void Add(T entity);
 
@@ -15,7 +15,7 @@
 
         void Delete(T entity);
 
-        void Delete(object id);
+        void Delete(int id);
 
         T Attach(T entity);
 

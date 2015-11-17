@@ -1,16 +1,4 @@
-﻿    //GET api/Account/UserInfo
-    //POST api/Account/Logout
-    //POST api/Account/ChangePassword
-    //POST api/Account/SetPassword
-    //POST api/Account/AddExternalLogin
-    //GET api/Account/ExternalLogin
-    //POST api/Account/RemoveLogin
-    //POST api/Account/Register
-    //POST api/Account/RegisterExternal
-    //GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
-    //GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
-
-namespace BookIt.Server.Api.Controllers
+﻿namespace BookIt.Server.Api.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -395,6 +383,8 @@ namespace BookIt.Server.Api.Controllers
             base.Dispose(disposing);
         }
 
+        #region Helpers
+
         private IAuthenticationManager Authentication
         {
             get { return Request.GetOwinContext().Authentication; }
@@ -497,5 +487,7 @@ namespace BookIt.Server.Api.Controllers
                 return HttpServerUtility.UrlTokenEncode(data);
             }
         }
+
+        #endregion
     }
 }
