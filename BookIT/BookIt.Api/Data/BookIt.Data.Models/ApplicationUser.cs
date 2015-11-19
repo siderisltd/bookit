@@ -1,11 +1,12 @@
-﻿namespace BookIt.Data.Models
+﻿using BookIt.Data.Models.Contracts;
+
+namespace BookIt.Data.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
-    using BookIt.Data.Common.Contracts;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 

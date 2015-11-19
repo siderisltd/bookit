@@ -1,8 +1,9 @@
-﻿namespace BookIt.Data.Models
+﻿using BookIt.Data.Models.Contracts;
+using BookIt.Data.Models.Model;
+
+namespace BookIt.Data.Models
 {
     using System.Collections.Generic;
-    using BookIt.Data.Common.Contracts;
-    using BookIt.Data.Common.Model;
 
     public class Service : DeletableEntity, IDeletableEntity
     {

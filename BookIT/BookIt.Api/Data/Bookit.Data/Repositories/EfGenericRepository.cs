@@ -1,13 +1,13 @@
-﻿namespace BookIt.Data.Common.Repositories
-{
-    using System;
-    using System.Linq;
-    using System.Data.Entity;
-    using System.Threading.Tasks;
-    using System.Data.Entity.Infrastructure;
-    using System.ComponentModel.DataAnnotations;
-    using BookIt.Data.Common.Contracts;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Threading.Tasks;
+using Bookit.Data.Contracts;
 
+namespace Bookit.Data.Repositories
+{
     public class EfGenericRepository<T> : IRepository<T> where T : class
     {
         public EfGenericRepository(IBookItDbContext context)
@@ -21,7 +21,7 @@
             this.DbSet = this.Context.Set<T>();
         }
 
-        public DbContext Context { get; set; }
+        public IBookItDbContext Context { get; set; }
 
         public IDbSet<T> DbSet { get; set; }
 

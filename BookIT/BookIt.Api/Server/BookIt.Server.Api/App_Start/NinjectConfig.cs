@@ -1,3 +1,6 @@
+using Bookit.Data.Contracts;
+using Bookit.Data.Repositories;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BookIt.Server.Api.NinjectConfig), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(BookIt.Server.Api.NinjectConfig), "Stop")]
 
@@ -15,8 +18,6 @@ namespace BookIt.Server.Api
     using Microsoft.Owin.Security.DataHandler.Serializer;
     using Ninject.Web.Common;
     using BookIt.Server.Common;
-    using BookIt.Data.Common.Contracts;
-    using BookIt.Data.Common.Repositories;
     using BookIt.Services.Common;
     using BookIt.Services.Data;
     using BookIt.Services.Data.Contracts;
@@ -72,10 +73,8 @@ namespace BookIt.Server.Api
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-
             kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
             kernel.Bind(typeof(IBookItDbContext)).To(typeof(BookItDbContext)).InRequestScope();
-            kernel.Bind(typeof(IBookItData)).To(typeof(BookItData));
 
             kernel.Bind(x => x
                 .From(Services.Common.Constants.ServicesAssembly)

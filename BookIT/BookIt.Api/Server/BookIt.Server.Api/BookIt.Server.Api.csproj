@@ -256,10 +256,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\BookIt.Data.Common\BookIt.Data.Common.csproj">
-      <Project>{b8d04782-ec58-4afd-8445-045865883e0a}</Project>
-      <Name>BookIt.Data.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Data\BookIt.Data.Models\BookIt.Data.Models.csproj">
       <Project>{f9f60195-ce27-498b-b1ec-13de1eb9e702}</Project>
       <Name>BookIt.Data.Models</Name>

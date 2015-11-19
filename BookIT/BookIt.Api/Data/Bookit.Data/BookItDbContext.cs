@@ -31,11 +31,5 @@
         {
             return new BookItDbContext();
         }
-
-        //TODO: ask what is this
-        public new IDbSet<T> Set<T>() where T : class
-        {
-            return base.Set<T>();
-        }
     }
 }

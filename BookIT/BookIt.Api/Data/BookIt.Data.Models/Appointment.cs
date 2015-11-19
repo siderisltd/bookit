@@ -1,8 +1,9 @@
-﻿namespace BookIt.Data.Models
+﻿using BookIt.Data.Models.Contracts;
+using BookIt.Data.Models.Model;
+
+namespace BookIt.Data.Models
 {
     using System;
-    using BookIt.Data.Common.Model;
-    using BookIt.Data.Common.Contracts;
 
     public class Appointment : DeletableEntity, IDeletableEntity, IAuditInfo
     {

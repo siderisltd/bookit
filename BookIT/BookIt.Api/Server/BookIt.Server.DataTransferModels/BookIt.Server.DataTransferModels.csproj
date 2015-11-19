@@ -72,10 +72,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\BookIt.Data.Common\BookIt.Data.Common.csproj">
-      <Project>{B8D04782-EC58-4AFD-8445-045865883E0A}</Project>
-      <Name>BookIt.Data.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Data\BookIt.Data.Models\BookIt.Data.Models.csproj">
       <Project>{f9f60195-ce27-498b-b1ec-13de1eb9e702}</Project>
       <Name>BookIt.Data.Models</Name>

@@ -1,15 +1,37 @@
-﻿namespace Bookit.Data
+﻿using System.Threading.Tasks;
+
+namespace Bookit.Data
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using BookIt.Data.Models;
 
-    public interface IBookItDbContext : IDisposable
+    public interface IBookItDbContext
     {
+        IDbSet<Location> BusinessLocations { get; set; }
+
+        IDbSet<Category> Categories { get; set; }
+
+        IDbSet<Comment> Comments { get; set; }
+
+        IDbSet<Customer> Customers { get; set; }
+
+        IDbSet<Service> Services { get; set; }
+
+        IDbSet<Appointment> Appointments { get; set; }
+
+        IDbSet<StaffUnit> Staff { get; set; }
+
+        IDbSet<Vote> Votes { get; set; }
+
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
-        IDbSet<T> Set<T>() where T : class;
+        DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         int SaveChanges();
+
+        Task<int> SaveChangesAsync();
+
+        void Dispose();
     }
 }

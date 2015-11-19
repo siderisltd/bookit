@@ -1,10 +1,11 @@
-﻿namespace BookIt.Data.Models
+﻿using BookIt.Data.Models.Contracts;
+using BookIt.Data.Models.Model;
+
+namespace BookIt.Data.Models
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using BookIt.Data.Common.Model;
-    using BookIt.Data.Common.Contracts;
 
     public class StaffUnit : Rateable, IDeletableEntity, IAuditInfo, ICommentable, IRateable
     {

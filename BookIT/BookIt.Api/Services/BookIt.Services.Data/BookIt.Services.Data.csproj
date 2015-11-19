@@ -61,7 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppointmentsService.cs" />
+    <Compile Include="Services\AppointmentsService.cs" />
+    <Compile Include="Services\BusinessesService.cs" />
+    <Compile Include="Services\CategoriesService.cs" />
+    <Compile Include="Services\CommentsService.cs" />
     <Compile Include="Contracts\IBusinessesService.cs" />
     <Compile Include="Contracts\ICategoriesService.cs" />
     <Compile Include="Contracts\ICommentsService.cs" />
@@ -71,16 +74,20 @@
     <Compile Include="Contracts\ITagsService.cs" />
     <Compile Include="Contracts\IVotesService.cs" />
     <Compile Include="Contracts\master\IDataService.cs" />
-    <Compile Include="LocationsService.cs" />
     <Compile Include="Contracts\IAppointmentsService.cs" />
     <Compile Include="Contracts\ILocationsService.cs" />
+    <Compile Include="Contracts\master\IDeletableService.cs" />
+    <Compile Include="Services\CustomersService.cs" />
+    <Compile Include="Services\LocationsService.cs" />
+    <Compile Include="Services\master\DataService.cs" />
+    <Compile Include="Services\master\DeletableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServicesService.cs" />
+    <Compile Include="Services\StaffUnitsService.cs" />
+    <Compile Include="Services\TagsService.cs" />
+    <Compile Include="Services\VotesService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\BookIt.Data.Common\BookIt.Data.Common.csproj">
-      <Project>{b8d04782-ec58-4afd-8445-045865883e0a}</Project>
-      <Name>BookIt.Data.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Data\BookIt.Data.Models\BookIt.Data.Models.csproj">
       <Project>{f9f60195-ce27-498b-b1ec-13de1eb9e702}</Project>
       <Name>BookIt.Data.Models</Name>
