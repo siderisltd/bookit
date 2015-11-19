@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using Bookit.Data.Contracts;
-using BookIt.Data.Models;
-using BookIt.Services.Data.Contracts;
-using BookIt.Services.Data.Contracts.master;
-using BookIt.Services.Data.Services.master;
-
-namespace BookIt.Services.Data.Services
+﻿namespace BookIt.Services.Data.Services
 {
+    using System;
+    using System.Linq;
+    using Bookit.Data.Contracts;
+    using BookIt.Data.Models;
+    using BookIt.Services.Data.Contracts;
+    using BookIt.Services.Data.Contracts.master;
+    using BookIt.Services.Data.Services.master;
+
     public class AppointmentsService : DeletableService<Appointment>, IAppointmentsService, IDataService<Appointment>
     {
         private readonly IRepository<Appointment> data;

@@ -1,12 +1,17 @@
-﻿namespace BookIt.Server.Api.Controllers
+﻿using System.IO;
+using BookIt.Services.Common.Extensions;
+
+namespace BookIt.Server.Api.Controllers
 {
     using System;
     using System.Web.Http;
     using System.Collections.Generic;
     using BookIt.Services.Data.Contracts;
+    using BookIt.Services.Common;
     using BookIt.Data.Models;
     using System.Data.Entity;
     using System.Threading.Tasks;
+    
 
     [RoutePrefix("bookitApi/Appointments")]
     public class AppointmentsController : ApiController
@@ -53,10 +58,18 @@
         [Route("async/addmany")]
         public async Task<IHttpActionResult> Post([FromBody]IEnumerable<Appointment> appointmentsToAdd)
         {
-            await Task.Run(() =>
+            //await Task.Run(() =>
+            //{
+            //    Parallel.ForEach(appointmentsToAdd, x => this.appointmentsService.AddNewAsync(x));
+            //});
+
+            var addeAppointments = await appointmentsToAdd.ForEachAsync(async appointment =>
             {
-                Parallel.ForEach(appointmentsToAdd, x => this.appointmentsService.AddNewAsync(x));
+                await this.appointmentsService.AddNewAsync(appointment);
+                return true;
             });
+
+            //return addedFiles;
 
             return this.Ok();
         }
@@ -66,15 +79,15 @@
             throw new NotImplementedException();
         }
 
-        //public void Delete(object id)
-        //{
-        //    this.appointmentsService.DeleteById(id);
-        //}
+        public void Delete(int id)
+        {
+            this.appointmentsService.DeleteById(id);
+        }
 
 
-        //public void Delete(Appointment appointmentToDelete)
-        //{
-        //    this.appointmentsService.Delete(appointmentToDelete);
-        //}
+        public void Delete(Appointment appointmentToDelete)
+        {
+            this.appointmentsService.Delete(appointmentToDelete);
+        }
     }
 }

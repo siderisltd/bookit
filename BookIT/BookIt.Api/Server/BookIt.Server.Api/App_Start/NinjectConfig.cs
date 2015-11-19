@@ -1,6 +1,3 @@
-using Bookit.Data.Contracts;
-using Bookit.Data.Repositories;
-
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BookIt.Server.Api.NinjectConfig), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(BookIt.Server.Api.NinjectConfig), "Stop")]
 
@@ -12,18 +9,21 @@ namespace BookIt.Server.Api
     using Ninject.Extensions.Conventions;
     using Ninject;
     using Bookit.Data;
-    using Microsoft.Owin.Security;
-    using Microsoft.Owin.Security.DataHandler;
-    using Microsoft.Owin.Security.DataHandler.Encoder;
-    using Microsoft.Owin.Security.DataHandler.Serializer;
     using Ninject.Web.Common;
     using BookIt.Server.Common;
-    using BookIt.Services.Common;
-    using BookIt.Services.Data;
-    using BookIt.Services.Data.Contracts;
+    using Bookit.Data.Contracts;
+    using Bookit.Data.Repositories;
 
-    public static class NinjectConfig 
+    public static class NinjectConfig
     {
+        public static Action<IKernel> RegisterDependencies = kernel =>
+        {
+            kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
+            kernel.Bind(typeof(IBookItDbContext)).To(typeof(BookItDbContext)).InRequestScope();
+
+        };
+
+
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
@@ -73,8 +73,7 @@ namespace BookIt.Server.Api
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
-            kernel.Bind(typeof(IBookItDbContext)).To(typeof(BookItDbContext)).InRequestScope();
+            RegisterDependencies(kernel);
 
             kernel.Bind(x => x
                 .From(Services.Common.Constants.ServicesAssembly)

@@ -8,6 +8,8 @@ namespace BookIt.Server.Api
     {
         public void Configuration(IAppBuilder app)
         {
+           // NinjectConfig.RegisterDependencies()
+
             ConfigureAuth(app);
 
             //app
