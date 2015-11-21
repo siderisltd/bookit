@@ -60,13 +60,17 @@
     <Compile Include="Account\ViewModels\ManageInfoViewModel.cs" />
     <Compile Include="Account\ViewModels\UserInfoViewModel.cs" />
     <Compile Include="Account\ViewModels\UserLoginInfoViewModel.cs" />
-    <Compile Include="Calendar\Time.cs" />
-    <Compile Include="Calendar\TimeFrame.cs" />
-    <Compile Include="Location\ViewModels\LocationDetailsViewModel.cs" />
+    <Compile Include="Appointments\BindingModels\AppointmentsBindingModel.cs" />
+    <Compile Include="Appointments\ViewModels\AppointmentsViewModel.cs" />
+    <Compile Include="Calendars\Time.cs" />
+    <Compile Include="Calendars\TimeFrame.cs" />
+    <Compile Include="Locations\ViewModels\LocationDetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Location\BindingModels\" />
+    <Folder Include="Businesses\BindingModels\" />
+    <Folder Include="Businesses\ViewModels\" />
+    <Folder Include="Locations\BindingModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

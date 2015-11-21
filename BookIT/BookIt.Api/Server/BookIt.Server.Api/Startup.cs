@@ -1,4 +1,8 @@
-﻿[assembly: Microsoft.Owin.OwinStartup(typeof(BookIt.Server.Api.Startup))]
+﻿using System.Reflection;
+using System.Web.Http;
+using BookIt.Server.Common;
+
+[assembly: Microsoft.Owin.OwinStartup(typeof(BookIt.Server.Api.Startup))]
 
 namespace BookIt.Server.Api
 {
@@ -8,13 +12,19 @@ namespace BookIt.Server.Api
     {
         public void Configuration(IAppBuilder app)
         {
-           // NinjectConfig.RegisterDependencies()
+            AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.BookItApiAssembly));
 
             ConfigureAuth(app);
 
+            var httpConfig = new HttpConfiguration();
+
+            WebApiConfig.Register(httpConfig);
+
+            httpConfig.EnsureInitialized();
+
             //app
             //    .UseNinjectMiddleware(NinjectConfig.CreateKernel)
-            //    .UseNinjectWebApi(new HttpConfiguration());
+            //    .UseNinjectWebApi(httpConfig);
 
         }
     }

@@ -36,5 +36,15 @@ namespace BookIt.Services.Data.Services.master
             await this.data.SaveChangesAsync();
             return objectToAdd;
         }
+
+        public int SaveChanges()
+        {
+            return this.data.SaveChanges();
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await this.data.SaveChangesAsync();
+        }
     }
 }

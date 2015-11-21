@@ -1,4 +1,7 @@
-﻿namespace BookIt.Server.Api
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace BookIt.Server.Api
 {
     using System.Web;
     using System.Reflection;
@@ -14,9 +17,13 @@
             DatabaseConfig.Initialize();
             AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.DataTransferModelsAssembly));
 
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            
+            var formatters = GlobalConfiguration.Configuration.Formatters;
+            var jsonFormatter = formatters.JsonFormatter;
+            var settings = jsonFormatter.SerializerSettings;
+            settings.Converters.Add(new IsoDateTimeConverter());
+            settings.Formatting = Formatting.Indented;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }

@@ -12,5 +12,9 @@
         void Add(T objectToAdd);
 
         Task<T> AddNewAsync(T objectToAdd);
+
+        int SaveChanges();
+
+        Task<int> SaveChangesAsync();
     }
 }

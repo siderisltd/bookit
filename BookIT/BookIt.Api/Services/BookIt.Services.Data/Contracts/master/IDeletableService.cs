@@ -7,6 +7,6 @@ namespace BookIt.Services.Data.Contracts.master
     {
         void Delete(T entity);
 
-        void DeleteById(int id);
+        void Delete(int id);
     }
 }

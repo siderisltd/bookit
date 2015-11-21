@@ -10,10 +10,10 @@
 
     public class AppointmentsService : DeletableService<Appointment>, IAppointmentsService, IDataService<Appointment>
     {
-        private readonly IRepository<Appointment> data;
+        private readonly IDeletableEntityRepository<Appointment> data;
 
-        public AppointmentsService(IRepository<Appointment> data)
-            :base(data)
+        public AppointmentsService(IDeletableEntityRepository<Appointment> data) 
+            : base(data)
         {
         }
 

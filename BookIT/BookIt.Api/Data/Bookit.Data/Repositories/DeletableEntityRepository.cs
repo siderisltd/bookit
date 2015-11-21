@@ -14,17 +14,19 @@ namespace Bookit.Data.Repositories
         {
         }
 
-        public override IQueryable<T> All()
-        {
-            return base.All().Where(x => !x.IsDeleted);
-        }
-
         public IQueryable<T> AllWithDeleted()
         {
-            return base.All();
+            return base.All().Where(x => x.IsDeleted).AsQueryable();
         }
 
-        public override void Delete(T entity)
+        //TODO: check logic for delete -> commented delete in EfGenericRepository<T>
+        public void Delete(int id)
+        {
+            var dbObject = base.GetById(id);
+            this.Delete(dbObject);
+        }
+
+        public void Delete(T entity)
         {
             entity.IsDeleted = true;
             entity.DeletedOn = DateTime.Now;
@@ -35,11 +37,13 @@ namespace Bookit.Data.Repositories
             }
 
             entry.State = EntityState.Modified;
+
+            this.Context.SaveChanges();
         }
 
         public void HardDelete(T entity)
         {
-            base.Delete(entity);
+            //TODO: implement logic for hard delete
         }
     }
 }

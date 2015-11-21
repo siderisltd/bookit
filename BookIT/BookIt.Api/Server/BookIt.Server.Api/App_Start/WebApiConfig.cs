@@ -7,6 +7,12 @@
     {
         public static void Register(HttpConfiguration config)
         {
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
+            json.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
@@ -16,9 +22,20 @@
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "CalendarBookitApi",
+                routeTemplate: "bookitApi/{controller}/{year}/{month}/{day}"
+            //defaults: new { Controllers = "Calanedar" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultBookitApi",
+                routeTemplate: "bookitApi/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+              config.Routes.MapHttpRoute(
                 name: "CalendarApi",
                 routeTemplate: "api/{controller}/{year}/{month}/{day}"
-                //defaults: new { Controllers = "Calanedar" }
+            //defaults: new { Controllers = "Calanedar" }
             );
 
             config.Routes.MapHttpRoute(

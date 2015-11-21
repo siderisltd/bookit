@@ -32,7 +32,8 @@ namespace Bookit.Data.Repositories
 
         public virtual T GetById(int id)
         {
-            return this.DbSet.Find(id);
+            var dbObject = this.DbSet.Find(id);
+            return dbObject;
         }
 
         public virtual void Add(T entity)
@@ -59,29 +60,29 @@ namespace Bookit.Data.Repositories
             entry.State = EntityState.Modified;
         }
         
-        public virtual void Delete(T entity)
-        {
-            DbEntityEntry entry = this.Context.Entry(entity);
-            if (entry.State != EntityState.Deleted)
-            {
-                entry.State = EntityState.Deleted;
-            }
-            else
-            {
-                this.DbSet.Attach(entity);
-                this.DbSet.Remove(entity);
-            }
-        }
+        //public virtual void Delete(T entity)
+        //{
+        //    DbEntityEntry entry = this.Context.Entry(entity);
+        //    if (entry.State != EntityState.Deleted)
+        //    {
+        //        entry.State = EntityState.Deleted;
+        //    }
+        //    else
+        //    {
+        //        this.DbSet.Attach(entity);
+        //        this.DbSet.Remove(entity);
+        //    }
+        //}
 
-        public virtual void Delete(int id)
-        {
-            var entity = this.GetById(id);
+        //public virtual void Delete(int id)
+        //{
+        //    var entity = this.GetById(id);
 
-            if (entity != null)
-            {
-                this.Delete(entity);
-            }
-        }
+        //    if (entity != null)
+        //    {
+        //        this.Delete(entity);
+        //    }
+        //}
 
         public T Attach(T entity)
         {

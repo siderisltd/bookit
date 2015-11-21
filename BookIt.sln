@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Services.Data.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.Services.Tests", "BookIT\BookIt.Api\Tests\BookIt.Services.Tests\BookIt.Services.Tests.csproj", "{B590E19E-1B4D-4B52-B12F-1F18DF768A5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookIt.WebApi.Tests", "Tests\BookIt.WebApi.Tests\BookIt.WebApi.Tests.csproj", "{DAB87E9D-EDF9-48A0-8BBA-AC934046B813}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{B590E19E-1B4D-4B52-B12F-1F18DF768A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B590E19E-1B4D-4B52-B12F-1F18DF768A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B590E19E-1B4D-4B52-B12F-1F18DF768A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB87E9D-EDF9-48A0-8BBA-AC934046B813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB87E9D-EDF9-48A0-8BBA-AC934046B813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB87E9D-EDF9-48A0-8BBA-AC934046B813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB87E9D-EDF9-48A0-8BBA-AC934046B813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,5 +106,6 @@ Global
 		{5A4EC266-2E85-4F5C-B4A6-2E64C1F25E45} = {6974B4BF-724C-4474-92BC-B977C067AD44}
 		{730922D0-9B79-437A-8284-D5C1AFCC4750} = {5A4EC266-2E85-4F5C-B4A6-2E64C1F25E45}
 		{B590E19E-1B4D-4B52-B12F-1F18DF768A5A} = {5A4EC266-2E85-4F5C-B4A6-2E64C1F25E45}
+		{DAB87E9D-EDF9-48A0-8BBA-AC934046B813} = {5A4EC266-2E85-4F5C-B4A6-2E64C1F25E45}
 	EndGlobalSection
 EndGlobal

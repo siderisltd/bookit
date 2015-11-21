@@ -1,17 +1,17 @@
-﻿using System.IO;
-using BookIt.Services.Common.Extensions;
-
-namespace BookIt.Server.Api.Controllers
+﻿namespace BookIt.Server.Api.Controllers
 {
     using System;
     using System.Web.Http;
     using System.Collections.Generic;
     using BookIt.Services.Data.Contracts;
-    using BookIt.Services.Common;
     using BookIt.Data.Models;
     using System.Data.Entity;
     using System.Threading.Tasks;
-    
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using BookIt.Server.DataTransferModels.Appointments.BindingModels;
+    using BookIt.Server.DataTransferModels.Appointments.ViewModels;
+
 
     [RoutePrefix("bookitApi/Appointments")]
     public class AppointmentsController : ApiController
@@ -24,70 +24,91 @@ namespace BookIt.Server.Api.Controllers
             this.appointmentsService = appointmentsService;
         }
 
-
+        //GET: bookitApi/Appointments/async/all
         [Route("async/all")]
         public async Task<IHttpActionResult> Get()
         {
-            var model = await this.appointmentsService.All().ToListAsync();
+            var model = await this.appointmentsService
+                .All()
+                .ProjectTo<AppointmentsViewModel>()
+                .ToListAsync();
 
             if (model == null) { return NotFound(); }
 
             return this.Ok(model);
         }
 
-        public IHttpActionResult Get(int id)
+        //GET: bookitApi/Appointments/async?id=10
+        [Route("async")]
+        public async Task<IHttpActionResult> Get(int id)
         {
-            var model =  this.appointmentsService.GetById(id);
+            var model = await this.appointmentsService
+                .All()
+                .ProjectTo<AppointmentsViewModel>()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
 
             return this.Ok(model);
         }
 
+        //POST: bookitApi/Appointments/async/add
         [Route("async/add")]
-        public async Task<IHttpActionResult> Post([FromBody]Appointment appointmentToAdd)
+        public async Task<IHttpActionResult> Post([FromBody]AppointmentsBindingModel appointmentToAdd)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(this.ModelState);
             }
 
-            await this.appointmentsService.AddNewAsync(appointmentToAdd);
+            var dbModel = Mapper.Map<Appointment>(appointmentToAdd);
+
+            await this.appointmentsService.AddNewAsync(dbModel);
 
             return this.Ok();
         }
 
         [Route("async/addmany")]
-        public async Task<IHttpActionResult> Post([FromBody]IEnumerable<Appointment> appointmentsToAdd)
+        public async Task<IHttpActionResult> Post([FromBody]IEnumerable<AppointmentsBindingModel> appointmentsToAdd)
         {
-            //await Task.Run(() =>
-            //{
-            //    Parallel.ForEach(appointmentsToAdd, x => this.appointmentsService.AddNewAsync(x));
-            //});
-
-            var addeAppointments = await appointmentsToAdd.ForEachAsync(async appointment =>
+            foreach (var appointment in appointmentsToAdd)
             {
-                await this.appointmentsService.AddNewAsync(appointment);
-                return true;
-            });
-
-            //return addedFiles;
+                var dbModel = Mapper.Map<Appointment>(appointment);
+                await this.appointmentsService.AddNewAsync(dbModel);
+            }
 
             return this.Ok();
         }
 
-        public void Put(object id, [FromBody]Appointment appointmentToUpdate)
+        [Route("async/update")]
+        public async Task<IHttpActionResult> Put(int id, [FromBody]AppointmentsBindingModel appointmentToUpdate)
         {
-            throw new NotImplementedException();
+            var dbObject = await this.appointmentsService
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            dbObject.Start = appointmentToUpdate.Start;
+            dbObject.End = appointmentToUpdate.End;
+            dbObject.CreatedOn = appointmentToUpdate.CreatedOn;
+
+            await this.appointmentsService.SaveChangesAsync();
+
+            return this.Ok(dbObject.Id);
         }
 
-        public void Delete(int id)
+        [Route("markDeleted")]
+        public IHttpActionResult Delete(int id)
         {
-            this.appointmentsService.DeleteById(id);
+            this.appointmentsService.Delete(id);
+
+            return this.Ok();
         }
 
-
-        public void Delete(Appointment appointmentToDelete)
+        [Route("markDeleted")]
+        public IHttpActionResult Delete(Appointment appointmentToDelete)
         {
             this.appointmentsService.Delete(appointmentToDelete);
+
+            return this.Ok();
         }
     }
 }

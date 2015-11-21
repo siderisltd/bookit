@@ -7,6 +7,7 @@ namespace BookIt.Data.Models
 
     public class Appointment : DeletableEntity, IDeletableEntity, IAuditInfo
     {
+
         public int Id { get; set; }
         
         public DateTime Start { get; set; }

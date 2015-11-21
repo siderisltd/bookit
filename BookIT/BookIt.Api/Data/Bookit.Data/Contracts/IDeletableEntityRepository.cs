@@ -7,6 +7,10 @@ namespace Bookit.Data.Contracts
     {
         IQueryable<T> AllWithDeleted();
 
+        void Delete(T entity);
+
+        void Delete(int id);
+
         void HardDelete(T entity);
     }
 }

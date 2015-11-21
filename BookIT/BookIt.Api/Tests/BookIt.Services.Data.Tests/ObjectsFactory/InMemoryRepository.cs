@@ -6,8 +6,7 @@
     using System.Threading.Tasks;
     using Bookit.Data.Contracts;
 
-    public class InMemoryRepository<T> : IRepository<T>
-        where T : class
+    public class InMemoryRepository<T> : IRepository<T> where T : class
     {
         private IList<T> data;
 

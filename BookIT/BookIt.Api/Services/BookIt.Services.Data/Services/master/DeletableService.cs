@@ -6,18 +6,20 @@ namespace BookIt.Services.Data.Services.master
 {
     public class DeletableService<T> : DataService<T>, IDeletableService<T> where T : class , IDeletableEntity
     {
-        private readonly IRepository<T> data;
+        private readonly IDeletableEntityRepository<T> data;
 
-        public DeletableService(IRepository<T> data)
+        public DeletableService(IDeletableEntityRepository<T> data) 
             : base(data)
         {
+            this.data = data;
         }
+
         public void Delete(T entity)
         {
             this.data.Delete(entity);
         }
 
-        public void DeleteById(int id)
+        public void Delete(int id)
         {
             this.data.Delete(id);
         }
