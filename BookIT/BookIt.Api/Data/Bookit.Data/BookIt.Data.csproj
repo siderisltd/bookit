@@ -58,12 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookItDbContext.cs" />
-    <Compile Include="Contracts\IDeletableEntityRepository.cs" />
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="IBookItDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DeletableEntityRepository.cs" />
     <Compile Include="Repositories\EfGenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>

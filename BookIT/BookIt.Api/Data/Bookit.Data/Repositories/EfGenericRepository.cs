@@ -14,31 +14,30 @@ namespace Bookit.Data.Repositories
         {
             if (context == null)
             {
-                throw new ArgumentNullException("context", "An instance of DbContext is required to use this repository.");
+                throw new ArgumentException("An instance of DbContext is required to use this repository.");
             }
 
             this.Context = context;
             this.DbSet = this.Context.Set<T>();
         }
 
-        public IBookItDbContext Context { get; set; }
+        protected IDbSet<T> DbSet { get; set; }
 
-        public IDbSet<T> DbSet { get; set; }
+        protected IBookItDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
             return this.DbSet.AsQueryable();
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(object id)
         {
-            var dbObject = this.DbSet.Find(id);
-            return dbObject;
+            return this.DbSet.Find(id);
         }
 
         public virtual void Add(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
+            var entry = this.Context.Entry(entity);
             if (entry.State != EntityState.Detached)
             {
                 entry.State = EntityState.Added;
@@ -51,7 +50,7 @@ namespace Bookit.Data.Repositories
 
         public virtual void Update(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
+            var entry = this.Context.Entry(entity);
             if (entry.State == EntityState.Detached)
             {
                 this.DbSet.Attach(entity);
@@ -59,53 +58,44 @@ namespace Bookit.Data.Repositories
 
             entry.State = EntityState.Modified;
         }
-        
-        //public virtual void Delete(T entity)
-        //{
-        //    DbEntityEntry entry = this.Context.Entry(entity);
-        //    if (entry.State != EntityState.Deleted)
-        //    {
-        //        entry.State = EntityState.Deleted;
-        //    }
-        //    else
-        //    {
-        //        this.DbSet.Attach(entity);
-        //        this.DbSet.Remove(entity);
-        //    }
-        //}
 
-        //public virtual void Delete(int id)
-        //{
-        //    var entity = this.GetById(id);
+        public virtual void Delete(T entity)
+        {
+            var entry = this.Context.Entry(entity);
+            if (entry.State != EntityState.Deleted)
+            {
+                entry.State = EntityState.Deleted;
+            }
+            else
+            {
+                this.DbSet.Attach(entity);
+                this.DbSet.Remove(entity);
+            }
+        }
 
-        //    if (entity != null)
-        //    {
-        //        this.Delete(entity);
-        //    }
-        //}
+        public void DeleteById(object id)
+        {
+            var entity = this.GetById(id);
 
-        public T Attach(T entity)
+            if (entity != null)
+            {
+                this.Delete(entity);
+            }
+            else
+            {
+                throw new ArgumentException("There are no entity with that ID");
+            }
+        }
+
+        public virtual T Attach(T entity)
         {
             return this.Context.Set<T>().Attach(entity);
         }
 
         public virtual void Detach(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
-
+            var entry = this.Context.Entry(entity);
             entry.State = EntityState.Detached;
-        }
-
-        private int GetPrimaryKey(DbEntityEntry entry)
-        {
-            var myObject = entry.Entity;
-
-            var property = myObject
-                .GetType()
-                .GetProperties()
-                .FirstOrDefault(prop => Attribute.IsDefined(prop, typeof(KeyAttribute)));
-
-            return (int)property.GetValue(myObject, null);
         }
 
         public int SaveChanges()
@@ -113,9 +103,9 @@ namespace Bookit.Data.Repositories
             return this.Context.SaveChanges();
         }
 
-        public Task<int> SaveChangesAsync()
+        public async Task<int> SaveChangesAsync()
         {
-            return this.Context.SaveChangesAsync();
+            return await this.Context.SaveChangesAsync();
         }
 
         public void Dispose()

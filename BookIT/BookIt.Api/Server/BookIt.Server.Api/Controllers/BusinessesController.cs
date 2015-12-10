@@ -5,7 +5,7 @@
     using System.Web.Http;
 
     [Authorize]
-    [RoutePrefix("bookitApi/Businesses")]
+    [RoutePrefix("api/Businesses")]
     public class BusinessesController : ApiController
     {
         private readonly IBusinessesService businessesService;

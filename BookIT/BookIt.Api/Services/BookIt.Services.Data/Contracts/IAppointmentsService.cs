@@ -5,8 +5,12 @@
     using BookIt.Data.Models;
     using BookIt.Services.Data.Contracts.master;
 
-    public interface IAppointmentsService : IDataService<Appointment>, IDeletableService<Appointment>
+    public interface IAppointmentsService : IDataService<Appointment>
     {
-        IQueryable<Appointment> Get(int businessId, DateTime dateTime);
+        IQueryable<Appointment> Get(int businessLocationId, DateTime dateTime);
+
+        IQueryable<Appointment> AllPaged(int page, int pageSize);
+
+        int GetLastPage(int pageSize);
     }
 }

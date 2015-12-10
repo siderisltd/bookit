@@ -7,7 +7,7 @@ namespace BookIt.Data.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class StaffUnit : Rateable, IDeletableEntity, IAuditInfo, ICommentable, IRateable
+    public class StaffUnit : Rateable, IDeletableEntity, IBookItEntity, ICommentable, IRateable
     {
         private ICollection<Service> providedServices;
 
@@ -19,7 +19,7 @@ namespace BookIt.Data.Models
             this.schedule = new HashSet<DateTime>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]

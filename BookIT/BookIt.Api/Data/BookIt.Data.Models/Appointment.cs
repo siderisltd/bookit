@@ -5,10 +5,10 @@ namespace BookIt.Data.Models
 {
     using System;
 
-    public class Appointment : DeletableEntity, IDeletableEntity, IAuditInfo
+    public class Appointment : BookItEntity, IDeletableEntity, IBookItEntity
     {
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
         
         public DateTime Start { get; set; }
 

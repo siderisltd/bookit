@@ -4,7 +4,7 @@
     using BookIt.Data.Models;
     using BookIt.Server.Common.Mapping;
 
-    public class AppointmentsViewModel : IMapFrom<Appointment>
+    public class AppointmentsViewModel : IMapFrom<Appointment>, IViewModel
     {
         public int Id { get; set; }
 

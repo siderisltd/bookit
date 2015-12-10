@@ -7,7 +7,7 @@ namespace BookIt.Data.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Business : DeletableEntity, IDeletableEntity, IAuditInfo
+    public class Business : BookItEntity, IDeletableEntity, IBookItEntity
     {
         private ICollection<Location> locations;
 
@@ -16,7 +16,7 @@ namespace BookIt.Data.Models
             this.locations = new HashSet<Location>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Index]
         [Required]

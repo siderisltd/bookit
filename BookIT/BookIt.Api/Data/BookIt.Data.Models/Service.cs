@@ -5,7 +5,7 @@ namespace BookIt.Data.Models
 {
     using System.Collections.Generic;
 
-    public class Service : DeletableEntity, IDeletableEntity
+    public class Service : BookItEntity, IDeletableEntity, IBookItEntity
     {
         private ICollection<StaffUnit> providers;
 
@@ -14,7 +14,7 @@ namespace BookIt.Data.Models
             this.providers = new HashSet<StaffUnit>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public int DurationInMinutes { get; set; }
 

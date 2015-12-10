@@ -2,6 +2,8 @@
 using System.Web.Http;
 using BookIt.Server.Common;
 
+using Owin;
+
 [assembly: Microsoft.Owin.OwinStartup(typeof(BookIt.Server.Api.Startup))]
 
 namespace BookIt.Server.Api
@@ -12,7 +14,8 @@ namespace BookIt.Server.Api
     {
         public void Configuration(IAppBuilder app)
         {
-            AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.BookItApiAssembly));
+            AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.apiAssembly));
+            AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.DataTransferModelsAssembly));
 
             ConfigureAuth(app);
 
@@ -22,6 +25,7 @@ namespace BookIt.Server.Api
 
             httpConfig.EnsureInitialized();
 
+            //TODO: Add reference to     using Ninject.Web.Common.OwinHost;  using Ninject.Web.WebApi.OwinHost;
             //app
             //    .UseNinjectMiddleware(NinjectConfig.CreateKernel)
             //    .UseNinjectWebApi(httpConfig);

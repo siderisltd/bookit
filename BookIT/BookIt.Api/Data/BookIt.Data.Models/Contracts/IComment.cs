@@ -1,6 +1,6 @@
 ﻿namespace BookIt.Data.Models.Contracts
 {
-    public interface IComment : IAuditInfo
+    public interface IComment : IBookItEntity
     {
         string Content { get; }
     }

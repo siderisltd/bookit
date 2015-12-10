@@ -5,7 +5,7 @@
     using BookIt.Services.Data.Contracts;
 
     [Authorize]
-    [RoutePrefix("bookitApi/Comments")]
+    [RoutePrefix("api/Comments")]
     public class CommentsController : ApiController
     {
         private readonly ICommentsService commentsService;

@@ -6,7 +6,7 @@ namespace BookIt.Data.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Location : Rateable, IDeletableEntity, IAuditInfo, ICommentable, IRateable
+    public class Location : Rateable, IDeletableEntity, IBookItEntity, ICommentable, IRateable
     {
         private ICollection<Category> categories;
 
@@ -18,7 +18,7 @@ namespace BookIt.Data.Models
             this.staff = new HashSet<StaffUnit>();
         }
 
-        public int Id { get; set; }
+       // public int Id { get; set; }
 
         [Required]
         [MaxLength(100)]

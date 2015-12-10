@@ -4,7 +4,7 @@
     using BookIt.Data.Models;
     using BookIt.Server.Common.Mapping;
 
-    public class AppointmentsBindingModel : IMapFrom<Appointment>
+    public class AppointmentsBindingModel : IMapFrom<Appointment>, IBindingModel
     {
         public AppointmentsBindingModel()
         {

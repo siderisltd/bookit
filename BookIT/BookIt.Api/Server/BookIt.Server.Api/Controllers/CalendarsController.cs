@@ -1,15 +1,16 @@
-﻿namespace BookIt.Server.Api.Controllers
+﻿using BookIt.Server.DataTransferModels.Calendars;
+
+namespace BookIt.Server.Api.Controllers
 {
     using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
-    using DataTransferModels.Calendar;
     using Data.Models;
     using Services.Data.Contracts;
 
     [Authorize]
-    [RoutePrefix("bookitApi/Calendars")]
+    [RoutePrefix("api/Calendars")]
     public class CalendarsController : ApiController
     {
         private readonly IAppointmentsService appointmentsService;

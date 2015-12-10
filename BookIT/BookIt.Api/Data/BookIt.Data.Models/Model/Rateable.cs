@@ -3,7 +3,7 @@ using BookIt.Data.Models.Contracts;
 
 namespace BookIt.Data.Models.Model
 {
-    public abstract class Rateable : DeletableEntity, IDeletableEntity, IAuditInfo, IRateable, ICommentable
+    public abstract class Rateable : BookItEntity, IRateable, ICommentable, IBookItEntity
     {
         private ICollection<IVote> votes;
         private ICollection<IComment> comments;

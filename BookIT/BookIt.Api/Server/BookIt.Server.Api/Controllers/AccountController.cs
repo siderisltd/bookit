@@ -24,7 +24,7 @@
 
     //TODO: Extract service and the logic from Startup.Auth
     [Authorize]
-    [RoutePrefix("bookitApi/Account")]
+    [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BookIt.Server.DataTransferModels.Calendar
+namespace BookIt.Server.DataTransferModels.Calendars
 {
     [DataContract]
     public class TimeFrame

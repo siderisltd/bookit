@@ -6,7 +6,7 @@ namespace BookIt.Data.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Category : DeletableEntity, IDeletableEntity
+    public class Category : BookItEntity, IBookItEntity
     {
         private ICollection<Service> services;
         private ICollection<Location> locations;
@@ -17,7 +17,7 @@ namespace BookIt.Data.Models
             this.locations = new HashSet<Location>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]

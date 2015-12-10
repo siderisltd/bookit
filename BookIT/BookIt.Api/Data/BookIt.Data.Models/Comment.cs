@@ -6,9 +6,9 @@ namespace BookIt.Data.Models
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Comment : DeletableEntity, IDeletableEntity, IComment
+    public class Comment : BookItEntity, IDeletableEntity, IComment, IBookItEntity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Required]
         [MaxLength(400)]

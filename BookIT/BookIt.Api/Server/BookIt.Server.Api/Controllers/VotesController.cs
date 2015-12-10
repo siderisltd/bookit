@@ -5,7 +5,7 @@
     using BookIt.Services.Data.Contracts;
 
     [Authorize]
-    [RoutePrefix("bookitApi/Votes")]
+    [RoutePrefix("api/Votes")]
     public class VotesController : ApiController
     {
 

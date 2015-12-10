@@ -5,7 +5,7 @@
     using BookIt.Services.Data.Contracts;
 
     [Authorize]
-    [RoutePrefix("bookitApi/Tags")]
+    [RoutePrefix("api/Tags")]
     public class TagsController : ApiController
     {
         private readonly ITagsService tagsService;

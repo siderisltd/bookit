@@ -5,7 +5,7 @@
     using BookIt.Services.Data.Contracts;
 
     [Authorize]
-    [RoutePrefix("bookitApi/Categories")]
+    [RoutePrefix("api/Categories")]
     public class CategoriesController : ApiController
     {
         private readonly ICategoriesService categoriesService;

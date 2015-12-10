@@ -5,7 +5,7 @@ namespace BookIt.Data.Models
 {
     using System.Collections.Generic;
 
-    public class Customer : Rateable, IDeletableEntity, IAuditInfo, ICommentable, IRateable
+    public class Customer : Rateable, IDeletableEntity, IBookItEntity, ICommentable, IRateable
     {
         private ICollection<Appointment> subscriptions;
 
@@ -14,7 +14,7 @@ namespace BookIt.Data.Models
             this.subscriptions = new HashSet<Appointment>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public string UserId { get; set; }
 

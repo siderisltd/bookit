@@ -19,7 +19,6 @@ namespace BookIt.Server.Api
         public static Action<IKernel> RegisterDependencies = kernel =>
         {
             kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
-            kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
             kernel.Bind(typeof(IBookItDbContext)).To(typeof(BookItDbContext)).InRequestScope();
         };
 

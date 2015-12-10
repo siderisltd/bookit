@@ -5,9 +5,9 @@ namespace BookIt.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Vote : DeletableEntity, IDeletableEntity, IVote
+    public class Vote : BookItEntity, IDeletableEntity, IVote, IBookItEntity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Range(1, 5)]
         public int Value { get; set; }

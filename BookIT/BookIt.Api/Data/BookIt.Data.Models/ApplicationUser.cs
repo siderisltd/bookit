@@ -11,7 +11,7 @@ namespace BookIt.Data.Models
     using Microsoft.AspNet.Identity.EntityFramework;
 
     // You can add profile data for the user by adding more properties to your AppUser class, please visit http://go.microsoft.com/fwlink/?LinkId=317594 to learn more.
-    public class ApplicationUser : IdentityUser, IDeletableEntity, IAuditInfo
+    public class ApplicationUser : IdentityUser, IDeletableEntity
     {
         public ApplicationUser()
         {

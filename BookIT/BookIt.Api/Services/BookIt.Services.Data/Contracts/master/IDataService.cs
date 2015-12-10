@@ -1,20 +1,11 @@
-﻿namespace BookIt.Services.Data.Contracts.master
+﻿using System.Threading.Tasks;
+
+namespace BookIt.Services.Data.Contracts.master
 {
-    using System.Linq;
-    using System.Threading.Tasks;
+    using Bookit.Data.Contracts;
 
-    public interface IDataService<T>
+    public interface IDataService<T> : IRepository<T> where T: class
     {
-        IQueryable<T> All();
-
-        T GetById(int id);
-
-        void Add(T objectToAdd);
-
         Task<T> AddNewAsync(T objectToAdd);
-
-        int SaveChanges();
-
-        Task<int> SaveChangesAsync();
     }
 }

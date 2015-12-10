@@ -22,14 +22,14 @@
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "CalendarBookitApi",
-                routeTemplate: "bookitApi/{controller}/{year}/{month}/{day}"
+                name: "Calendarapi",
+                routeTemplate: "api/{controller}/{year}/{month}/{day}"
             //defaults: new { Controllers = "Calanedar" }
             );
 
             config.Routes.MapHttpRoute(
-                name: "DefaultBookitApi",
-                routeTemplate: "bookitApi/{controller}/{id}",
+                name: "Defaultapi",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
               config.Routes.MapHttpRoute(
