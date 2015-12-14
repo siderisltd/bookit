@@ -2,13 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Net.Http;
     using System.Security.Claims;
     using System.Security.Cryptography;
     using System.Threading.Tasks;
+    using System.Linq;
     using System.Web;
     using System.Web.Http;
-
+    using Bookit.Data;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNet.Identity.Owin;
@@ -30,8 +32,16 @@
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager userManager;
 
+        private IBookItDbContext db;
+
         public AccountController()
+            :this(new BookItDbContext())
         {
+        }
+
+        public AccountController(IBookItDbContext db)
+        {
+            this.db = db;
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -332,7 +342,14 @@
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser()
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName
+            };
+
             IdentityResult result;
 
             result = await UserManager.CreateAsync(user, model.Password);
@@ -377,6 +394,25 @@
                 return GetErrorResult(result); 
             }
             return Ok();
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("Identity")]
+        public async Task<IHttpActionResult> Identity()
+        {
+            //TODO: FIX
+            var currentUserUsername = this.User.Identity.Name;
+
+            var username = currentUserUsername;
+
+
+            if (username == null)
+            {
+                return InternalServerError(new Exception("User should not be null!"));
+            }
+
+            return this.Json(username);
         }
 
         protected override void Dispose(bool disposing)

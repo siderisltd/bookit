@@ -5,7 +5,7 @@ namespace Bookit.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using BookIt.Data.Models;
-
+    using Microsoft.AspNet.Identity.EntityFramework;
     public interface IBookItDbContext
     {
         IDbSet<Location> BusinessLocations { get; set; }

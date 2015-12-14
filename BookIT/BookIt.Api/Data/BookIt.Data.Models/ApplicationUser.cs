@@ -34,6 +34,10 @@ namespace BookIt.Data.Models
             return userIdentity;
         }
 
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         public bool IsDeleted { get; set; }
 
        // [DataType(DataType.DateTime)]

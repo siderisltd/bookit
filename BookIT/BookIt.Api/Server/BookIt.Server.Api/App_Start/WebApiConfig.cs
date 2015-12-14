@@ -1,12 +1,17 @@
 ﻿namespace BookIt.Server.Api
 {
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using Microsoft.Owin.Security.OAuth;
 
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
+            //TODO: make cors only to desired address
+            //var corsAttribute = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(corsAttribute);
+
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
@@ -29,17 +34,6 @@
 
             config.Routes.MapHttpRoute(
                 name: "Defaultapi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-              config.Routes.MapHttpRoute(
-                name: "CalendarApi",
-                routeTemplate: "api/{controller}/{year}/{month}/{day}"
-            //defaults: new { Controllers = "Calanedar" }
-            );
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
