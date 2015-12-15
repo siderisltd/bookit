@@ -1,4 +1,4 @@
-﻿//[assembly: Microsoft.Owin.OwinStartup(typeof(Bookit.SPA.Startup))]
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(Bookit.SPA.Startup))]
 
 namespace Bookit.SPA
 {
@@ -8,8 +8,7 @@ namespace Bookit.SPA
     {
         public void Configuration(IAppBuilder app)
         {
-            //BookIt.Server.Api.Startup.ConfigureAuth(app);
-            //BookIt.Server.Api.Startup.Configuration(app);
+            BookIt.Server.Api.Startup.ConfigureAuth(app);
         }
     }
 }
