@@ -4,17 +4,7 @@
     function data($http, $q, notifier, baseUrl) {
 
         function getErrorMessage(response) {
-
-            var error = response.data.modelState;
-
-            if (error && error[Object.keys(error)[0]][0]) {
-                error = error[Object.keys(error)[0]][0];
-            }
-            else {
-                error = response.data.message;
-            }
-
-            return error;
+            return response.data.error_description;
         }
 
         function get(url, queryParams) {

@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    function RegisterController(auth, $location) {
+    function RegisterController(auth, $location, notifier) {
         var vm = this;
 
 
@@ -9,15 +9,15 @@
             if (registerForm.$valid) {
                 auth.register(user)
                     .then(function() {
-                        console.log('registered!');
+                        notifier.success('User registered!');
                         $location.path('/account/login');
                     }, function(err) {
-                        console.log(err);
+                        notifier.error(err);
                     });
             }
         }
     }
 
     angular.module('bookitApp.controllers')
-        .controller('RegisterController', ['auth', '$location', RegisterController]);
+        .controller('RegisterController', ['auth', '$location', 'notifier', RegisterController]);
 }());

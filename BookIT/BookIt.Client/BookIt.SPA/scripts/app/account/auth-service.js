@@ -4,7 +4,7 @@
 
 
 
-    var authService = function authService($http, $q, $cookies, data, identity) {
+    var authService = function authService($http, $q, $cookies, data, identity, notifier) {
         var TOKEN_KEY = 'authentication'; // cookie key
 
         var getIdentity = function () {
@@ -45,41 +45,25 @@
                     expireDay.setHours(expireDay.getHours() + 100);
 
                     $cookies.put(TOKEN_KEY, tokenValue, { expires: expireDay });
-                  
+
                     $http.defaults.headers.common.Authorization = 'Bearer ' + tokenValue;
 
-                    getIdentity().then(function () {
+                    getIdentity().then(function() {
                         deferred.resolve(response);
                     });
-                }), function (err) {
-                    deferred.reject(err);
-                };
-
-            
-           
-            
-
-            //$http.post(baseUrl + 'Token', grantTypeData, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-            //    .success(function (response) {
-            //        var tokenValue = response.access_token;
-
-            //        var expireDay = new Date();
-            //        expireDay.setHours(expireDay.getHours() + 100);
-
-            //        $cookies.put(TOKEN_KEY, tokenValue, { expires: expireDay });
-
-            //        $http.defaults.headers.common.Authorization = 'Bearer ' + tokenValue;
-
-            //        getIdentity().then(function () {
-            //            deferred.resolve(response);
-            //        });
-            //    })
-            //    .error(function (err) {
-            //        deferred.reject(err);
-            //    });
+                }), function(err) {
+                deferred.reject(err);
+            };
 
             return deferred.promise;
         };
+
+        var logout = function logout() {
+            $cookies.remove(TOKEN_KEY);
+            $http.defaults.headers.common.Authorization = null;
+            identity.removeUser();
+            notifier.success('User logged out');
+        }
 
       
         return {
@@ -89,15 +73,11 @@
             isAuthenticated: function () {
                 return !!$cookies.get(TOKEN_KEY);
             },
-            logout: function () {
-                $cookies.remove(TOKEN_KEY);
-                $http.defaults.headers.common.Authorization = null;
-                identity.removeUser();
-            }
+            logout: logout
         };
     };
 
     angular
         .module('bookitApp.services')
-        .factory('auth', ['$http','$q', '$cookies', 'data', 'identity', authService]);
+        .factory('auth', ['$http','$q', '$cookies', 'data', 'identity', 'notifier', authService]);
 }());
