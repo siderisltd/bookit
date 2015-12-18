@@ -7,7 +7,8 @@
 
         var CONTROLLER_VIEW_MODEL_NAME = 'vm';
 
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
+
         debugger;
         $routeProvider
             .when('/', {
@@ -82,7 +83,7 @@
 
     angular
         .module('bookitApp', ['ngRoute', 'ngCookies', 'bookitApp.controllers'])
-        .config(['$routeProvider', config])
+        .config(['$routeProvider', '$locationProvider', config])
         .run(['auth', '$cookies', '$http', run])
         .constant('baseUrl', 'http://localhost:1715/');
 
