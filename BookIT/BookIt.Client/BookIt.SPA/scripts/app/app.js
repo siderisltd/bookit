@@ -85,6 +85,7 @@
         .module('bookitApp', ['ngRoute', 'ngCookies', 'bookitApp.controllers'])
         .config(['$routeProvider', '$locationProvider', config])
         .run(['auth', '$cookies', '$http', run])
-        .constant('baseUrl', 'http://localhost:1715/');
+        .value('toastr', toastr)
+        .constant('baseUrl', 'http://localhost:1715/api/');
 
 }());

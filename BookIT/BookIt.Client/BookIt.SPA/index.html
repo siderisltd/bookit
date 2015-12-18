@@ -64,17 +64,22 @@
     <!--Main container-->
     <div class="container" ng-view></div>
 
-    <footer>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                BookIT Project All rights reserved
-            </div>
+<footer>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            BookIT Project All rights reserved
         </div>
+    </div>
 
-    </footer>
+</footer>
+    <!--kendo-ui full / for development purposes /-->
+    <script src="scripts/lib/kendo-ui/kendo.web.min.js"></script>
 
     <!--custom scripts-->
     <script src="scripts/app/app.js"></script>
+    <script src="scripts/app/common/data.js"></script>
+    <script src="scripts/app/common/notifier.js"></script>
+
     <!--Controllers-->
     <script src="scripts/app/common/main-controller.js"></script>
     <script src="scripts/app/account/login-controller.js"></script>
@@ -85,7 +90,7 @@
     <script src="scripts/app/info/covered-area-controller.js"></script>
     <script src="scripts/app/info/our-mission-controller.js"></script>
 
-    <!--Account-->
+    <!--Services-->
     <script src="scripts/app/account/auth-service.js"></script>
     <script src="scripts/app/account/identity-service.js"></script>
 </body>

@@ -83,8 +83,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="scripts\angular-mocks.js" />
+    <None Include="scripts\angular.intellisense.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\app\common\data.js" />
     <Content Include="scripts\app\common\main-controller.js" />
+    <Content Include="scripts\app\common\notifier.js" />
     <Content Include="scripts\lib\angularJs\angular.min.js.map" />
+    <Content Include="scripts\angular.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -127,6 +134,8 @@
     <Content Include="scripts\lib\cryptoJs\cryptojs.js" />
     <Content Include="scripts\lib\cryptoJs\MD5.js" />
     <Content Include="scripts\lib\cryptoJs\SHA1.js" />
+    <Content Include="scripts\lib\kendo-ui\kendo.all.min.js" />
+    <Content Include="scripts\lib\kendo-ui\kendo.web.min.js" />
     <Content Include="scripts\lib\toastr\toastr.js" />
     <Content Include="scripts\lib\toastr\toastr.min.js" />
     <Content Include="styles\bootstrap\bootstrap-theme.css" />
