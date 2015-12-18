@@ -18,6 +18,8 @@
         }
     }
 
+
     angular.module('bookitApp.controllers')
         .controller('RegisterController', ['auth', '$location', 'notifier', RegisterController]);
 }());
+

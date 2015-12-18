@@ -83,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="partials\account\register-company.html" />
+    <Content Include="partials\account\register-user.html" />
+    <Content Include="partials\error\not-authorized.html" />
     <Content Include="scripts\angular-mocks.js" />
     <None Include="scripts\angular.intellisense.js" />
     <Content Include="scripts\angular.js" />
@@ -144,6 +147,22 @@
     <Content Include="styles\bootstrap\bootstrap.min.css" />
     <Content Include="scripts\lib\jquery\jquery.js" />
     <Content Include="scripts\lib\jquery\jquery.min.js" />
+    <Content Include="styles\kendo-ui\Bootstrap\editor.png" />
+    <Content Include="styles\kendo-ui\Bootstrap\imagebrowser.png" />
+    <Content Include="styles\kendo-ui\Bootstrap\indeterminate.gif" />
+    <Content Include="styles\kendo-ui\Bootstrap\loading-image.gif" />
+    <Content Include="styles\kendo-ui\Bootstrap\loading.gif" />
+    <Content Include="styles\kendo-ui\Bootstrap\loading_2x.gif" />
+    <Content Include="styles\kendo-ui\Bootstrap\markers.png" />
+    <Content Include="styles\kendo-ui\Bootstrap\markers_2x.png" />
+    <Content Include="styles\kendo-ui\Bootstrap\slider-h.gif" />
+    <Content Include="styles\kendo-ui\Bootstrap\slider-v.gif" />
+    <Content Include="styles\kendo-ui\Bootstrap\sprite.png" />
+    <Content Include="styles\kendo-ui\Bootstrap\sprite_2x.png" />
+    <Content Include="styles\kendo-ui\Bootstrap\sprite_kpi.png" />
+    <Content Include="styles\kendo-ui\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="styles\kendo-ui\kendo.bootstrap.min.css" />
+    <Content Include="styles\kendo-ui\kendo.common.min.css" />
     <Content Include="styles\style.css" />
     <Content Include="styles\toastr\toastr.css" />
     <Content Include="styles\toastr\toastr.min.css" />
@@ -159,6 +178,7 @@
       <Name>BookIt.Server.Api</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

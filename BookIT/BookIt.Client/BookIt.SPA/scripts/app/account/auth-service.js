@@ -1,10 +1,7 @@
 ﻿(function () {
     'use strict';
 
-
-
-
-    var authService = function authService($http, $q, $cookies, data, identity, notifier) {
+    var authService = function authService($http, $q, $cookies, data, identity) {
         var TOKEN_KEY = 'authentication'; // cookie key
 
         var getIdentity = function () {
@@ -62,7 +59,6 @@
             $cookies.remove(TOKEN_KEY);
             $http.defaults.headers.common.Authorization = null;
             identity.removeUser();
-            notifier.success('User logged out');
         }
 
       
@@ -79,5 +75,5 @@
 
     angular
         .module('bookitApp.services')
-        .factory('auth', ['$http','$q', '$cookies', 'data', 'identity', 'notifier', authService]);
+        .factory('auth', ['$http','$q', '$cookies', 'data', 'identity', authService]);
 }());

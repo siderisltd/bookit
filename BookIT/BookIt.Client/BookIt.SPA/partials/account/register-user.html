@@ -1,0 +1,49 @@
+﻿<div class="col-md-6 col-md-6 col-md-offset-3">
+    <div class="well bs-component">
+        <form class="form-horizontal" name="registerForm">
+            <fieldset>
+                <legend>Register user</legend>
+
+                <div class="form-group">
+                    <label for="inputFirstName" class="col-lg-2 control-label">First name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputFirstName" placeholder="First name" required="required" ng-model="user.firstName">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputLastName" class="col-lg-2 control-label">Last name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputLastName" placeholder="Last name" required="required" ng-model="user.lastName">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" required="required" ng-model="user.email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                    <div class="col-lg-10">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required="required" ng-model="user.password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm Password</label>
+                    <div class="col-lg-10">
+                        <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password" required="required" ng-model="user.confirmPassword">
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Remember me</label>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        <button class="btn btn-primary" ng-click="vm.register(user, registerForm)" ng-disabled="registerForm.$invalid || user.password != user.confirmPassword">Submit</button>
+    </div>
+</div>

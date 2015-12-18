@@ -9,6 +9,7 @@
 
         function get(url, queryParams) {
             var defered = $q.defer();
+            debugger;
 
             $http.get(baseUrl + url, { params: queryParams })
                 .then(function (response) {

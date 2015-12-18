@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    function MainController(auth, identity) {
+    function MainController(auth, identity, notifier) {
         var vm = this;
         debugger;
 
@@ -12,6 +12,7 @@
             vm.globallySetCurrentUserWhenLogin = undefined;
             auth.logout();
             waitForLogin(); //for second login
+            notifier.success('User logged out');
         }
 
         function waitForLogin() {
@@ -25,5 +26,5 @@
     }
 
     angular.module('bookitApp')
-        .controller('MainController', ['auth', 'identity', MainController]);
+        .controller('MainController', ['auth', 'identity', 'notifier', MainController]);
 }());

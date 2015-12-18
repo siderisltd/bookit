@@ -2,78 +2,79 @@
 <html>
 <head>
     <title>BookIT</title>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <base href="/" />
+    <!--Favicon-->
+    <link rel="icon" href="images/favicon.ico">
+
+
     <!--libs-->
     <script src="scripts/lib/jquery/jquery.js"></script>
     <script src="scripts/lib/angularJs/angular.js"></script>
-    <!--<script src="scripts/lib/angularJs/angular.min.js"></script>-->
     <script src="scripts/lib/angularJs/angular-cookies.js"></script>
     <script src="scripts/lib/angularJs/angular-route.js"></script>
     <script src="scripts/lib/bootstrap/bootstrap.js"></script>
     <script src="scripts/lib/toastr/toastr.js"></script>
+    <script src="scripts/lib/kendo-ui/kendo.all.min.js"></script>
 
-    <!--lib styles-->
-    <link href="styles/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="styles/toastr/toastr.css" rel="stylesheet" />
 
+    <!--STYLES-->
     <!--custom styles-->
     <link href="styles/style.css" rel="stylesheet" />
-
-    <!--Favicon-->
-    <link rel="icon" href="images/favicon.ico">
+    <!--lib styles-->
+    <link href="styles/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="styles/kendo-ui/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/kendo-ui/kendo.bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/toastr/toastr.css" rel="stylesheet" />
 </head>
 <body ng-app="bookitApp" ng-cloak ng-controller="MainController as vm">
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="/" class="navbar-brand">BookIt</a>
-            </div>
 
-            <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/" class="navbar-brand">BookIt</a>
+        </div>
 
-                    <li>
-                        <a href="/info/about-us">About us</a>
-                    </li>
-                    <li>
-                        <a href="/info/our-mission">Our mission</a>
-                    </li>
-                    <li>
-                        <a href="/info/community">Community</a>
-                    </li>
-                    <li>
-                        <a href="/info/covered-area">Covered area</a>
-                    </li>
-                </ul>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
 
-                <ul class="nav navbar-nav navbar-right" ng-if="!vm.globallySetCurrentUserWhenLogin">
-                    <li><a href="/account/login">Login</a></li>
-                    <li><a href="/account/register">Register</a></li>
-                </ul>
+                <li>
+                    <a href="/info/about-us">About us</a>
+                </li>
+                <li>
+                    <a href="/info/our-mission">Our mission</a>
+                </li>
+                <li>
+                    <a href="/info/community">Community</a>
+                </li>
+                <li>
+                    <a href="/info/covered-area">Covered area</a>
+                </li>
+            </ul>
 
-                <ul class="nav navbar-nav navbar-right" ng-if="vm.globallySetCurrentUserWhenLogin">
-                    <li><a href="#">Hello {{vm.globallySetCurrentUserWhenLogin}}</a></li>
-                    <li><a href="#" ng-click="vm.logout()">Logout</a></li>
-                </ul>
+            <ul class="nav navbar-nav navbar-right" ng-if="!vm.globallySetCurrentUserWhenLogin">
+                <li><a href="/account/login">Login</a></li>
+                <li><a href="/account/register">Register</a></li>
+            </ul>
 
-            </div>
+            <ul class="nav navbar-nav navbar-right" ng-if="vm.globallySetCurrentUserWhenLogin">
+                <li><a href="#">Hello {{vm.globallySetCurrentUserWhenLogin}}</a></li>
+                <li><a href="#" ng-click="vm.logout()">Logout</a></li>
+            </ul>
+
         </div>
     </div>
 
     <!--Main container-->
     <div class="container" ng-view></div>
 
-<footer>
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            BookIT Project All rights reserved
+    <footer>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                BookIT Project All rights reserved
+            </div>
         </div>
-    </div>
 
-</footer>
-    <!--kendo-ui full / for development purposes /-->
-    <script src="scripts/lib/kendo-ui/kendo.web.min.js"></script>
+    </footer>
 
     <!--custom scripts-->
     <script src="scripts/app/app.js"></script>
@@ -93,5 +94,6 @@
     <!--Services-->
     <script src="scripts/app/account/auth-service.js"></script>
     <script src="scripts/app/account/identity-service.js"></script>
+
 </body>
 </html>

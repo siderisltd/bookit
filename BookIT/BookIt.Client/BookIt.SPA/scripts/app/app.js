@@ -9,6 +9,18 @@
 
         $locationProvider.html5Mode(true);
 
+
+        var routeResolvers = {
+            authenticationRequired: {
+                authenticate: ['$q', 'auth', function ($q, auth) {
+                    if (auth.isAuthenticated()) {
+                        return true;
+                    } 
+                    return $q.reject('not authorized');
+                }]
+            }
+        }
+
         debugger;
         $routeProvider
             .when('/', {
@@ -29,7 +41,8 @@
             .when('/info/community', {
                 templateUrl: 'partials/info/community.html',
                 controller: 'CommunityController',
-                controllerAs: CONTROLLER_VIEW_MODEL_NAME
+                controllerAs: CONTROLLER_VIEW_MODEL_NAME,
+                resolve: routeResolvers.authenticationRequired
             })
             .when('/info/covered-area', {
                 templateUrl: 'partials/info/covered-area.html',
@@ -46,34 +59,28 @@
                 controller: 'RegisterController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME
             })
+            .when('/error/not-authorized', {
+                templateUrl: 'partials/error/not-authorized.html',
+            })
             .otherwise({ templateUrl: 'partials/error/not-found.html' });
     }
 
 
-    function run(auth, $cookies, $http) {
+    function run(auth, $cookies, $http, $rootScope, $location) {
 
         //if someone throw not authorized to redirect to home
-        //($rootScope, $location, auth, notifier)
+        $rootScope.$on('$routeChangeError', function (ev, current, previous, rejection) {
+            if (rejection === 'not authorized') {
+                $location.path('/error/not-authorized');
+            }
+        });
 
-        //$rootScope.$on('$routeChangeError', function (ev, current, previous, rejection) {
-        //    if (rejection === 'not authorized') {
-        //        notifier.warning('Please log into your account first!');
-        //        $location.path('/');
-        //        angular
-        //            .element('#open-login-btn')
-        //            .trigger('click');
-
-        //        angular.element('#login-modal')
-        //            .attr('data-previous-route', previous.$$route.originalPath)
-        //            .attr('data-current-route', current.$$route.originalPath);
-        //    }
-        //});
 
         if (auth.isAuthenticated()) {
             $http.defaults.headers.common.Authorization = 'Bearer ' + $cookies.get('authentication');
             auth.getIdentity()
                 .then(function (identity) {
-            });
+                });
         }
     };
 
@@ -84,7 +91,7 @@
     angular
         .module('bookitApp', ['ngRoute', 'ngCookies', 'bookitApp.controllers'])
         .config(['$routeProvider', '$locationProvider', config])
-        .run(['auth', '$cookies', '$http', run])
+        .run(['auth', '$cookies', '$http', '$rootScope', '$location', run])
         .value('toastr', toastr)
         .constant('baseUrl', 'http://localhost:1715/api/');
 
