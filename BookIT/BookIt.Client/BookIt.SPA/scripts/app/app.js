@@ -59,6 +59,16 @@
                 controller: 'RegisterController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME
             })
+            .when('/account/register/user', {
+                templateUrl: 'partials/account/register-user.html',
+                controller: 'RegisterController',
+                controllerAs: CONTROLLER_VIEW_MODEL_NAME
+            })
+            .when('/account/register/company', {
+                templateUrl: 'partials/account/register-company.html',
+                controller: 'RegisterController',
+                controllerAs: CONTROLLER_VIEW_MODEL_NAME
+            })
             .when('/error/not-authorized', {
                 templateUrl: 'partials/error/not-authorized.html',
             })
@@ -71,6 +81,8 @@
         //if someone throw not authorized to redirect to home
         $rootScope.$on('$routeChangeError', function (ev, current, previous, rejection) {
             if (rejection === 'not authorized') {
+                var lastUrl = current.originalPath;
+                debugger;
                 $location.path('/error/not-authorized');
             }
         });
@@ -89,7 +101,7 @@
     angular.module('bookitApp.controllers', ['bookitApp.services']);
 
     angular
-        .module('bookitApp', ['ngRoute', 'ngCookies', 'bookitApp.controllers'])
+        .module('bookitApp', ['ngRoute', 'kendo.directives', 'ngCookies', 'bookitApp.controllers'])
         .config(['$routeProvider', '$locationProvider', config])
         .run(['auth', '$cookies', '$http', '$rootScope', '$location', run])
         .value('toastr', toastr)

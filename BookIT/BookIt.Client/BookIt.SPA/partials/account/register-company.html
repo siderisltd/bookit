@@ -1,49 +1,70 @@
-﻿<div class="col-md-6 col-md-6 col-md-offset-3">
-    <div class="well bs-component">
-        <form class="form-horizontal" name="registerForm">
-            <fieldset>
-                <legend>Register user</legend>
+﻿<div class="container">
+    <div class="demo-section k-content">
+        <!--<h4>Profile Completeness: <span id="completed">0%</span></h4>-->
 
-                <div class="form-group">
-                    <label for="inputFirstName" class="col-lg-2 control-label">First name</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputFirstName" placeholder="First name" required="required" ng-model="user.firstName">
-                    </div>
-                </div>
+        <h4>{{vm.status}}</h4>
+        <div kendo-progress-bar="progressBar" k-min="0" k-max="100" ng-model="vm.progress" style="width: 100%;"></div>
+        <input ng-model="vm.progress"/>
 
-                <div class="form-group">
-                    <label for="inputLastName" class="col-lg-2 control-label">Last name</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputLastName" placeholder="Last name" required="required" ng-model="user.lastName">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" required="required" ng-model="user.email">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                    <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required="required" ng-model="user.password">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm Password</label>
-                    <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password" required="required" ng-model="user.confirmPassword">
-                        <div class="checkbox">
-                            <label><input type="checkbox"> Remember me</label>
-                        </div>
-                    </div>
-                </div>
-
-            </fieldset>
-        </form>
-        <button class="btn btn-primary" ng-click="vm.register(user, registerForm)" ng-disabled="registerForm.$invalid || user.password != user.confirmPassword">Submit</button>
-    </div>
+        <!--<div id="profileCompleteness"></div>-->
+            <ul class="forms">
+                <li>
+                    <label>Company Name</label>
+                    <input type="text" name="firstName" value="" class="k-textbox" ng-model="vm.name" ng-blur="vm.changeInput()"/>
+                </li>
+                <li>
+                    <label>Company Address</label>
+                    <input type="text" name="companyAddress" value="" class="k-textbox"  ng-model="company.address" ng-blur="vm.changeInput()"/>
+                </li>
+                <li>
+                    <label>Business Type</label>
+                    <select id="businessTypeInput" name="businessType" ng-model="company.businessType" ng-blur="vm.changeInput()">
+                        <option value="Hairdress">Male</option>
+                        <option value="Cosmetics">Female</option>
+                        <option value="Default" selected="selected">Rather not say</option>
+                    </select>
+                </li>
+                <li>
+                    <label>MOL First Name</label>
+                    <input type="text" name="molFirstName" value="" class="k-textbox" ng-model="company.molFirstName" ng-blur="vm.changeInput()"/>
+                </li>
+            </ul>
+        </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var ALL_INPUT_FIELDS_COUNT = 4;
+        var UPDATE_AMOUNT = 100 / ALL_INPUT_FIELDS_COUNT;
+         
+
+        $("#businessTypeInput").kendoDropDownList();
+
+
+        
+    });
+</script>
+<style>
+    #profileCompleteness {
+        width: 100%;
+    }
+
+    .forms {
+        list-style-type: none;
+        padding: 2em 0 0;
+        margin: 0;
+    }
+
+        .forms label {
+            display: block;
+            font-size: 12px;
+            line-height: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 1em;
+        }
+
+        .forms li {
+            margin-bottom: 1.5em;
+        }
+</style>

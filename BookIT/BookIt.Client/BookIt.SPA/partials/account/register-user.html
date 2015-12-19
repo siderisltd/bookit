@@ -1,6 +1,6 @@
 ﻿<div class="col-md-6 col-md-6 col-md-offset-3">
     <div class="well bs-component">
-        <form class="form-horizontal" name="registerForm">
+        <form class="form-horizontal" name="registerUserForm">
             <fieldset>
                 <legend>Register user</legend>
 
@@ -44,6 +44,6 @@
 
             </fieldset>
         </form>
-        <button class="btn btn-primary" ng-click="vm.register(user, registerForm)" ng-disabled="registerForm.$invalid || user.password != user.confirmPassword">Submit</button>
+        <button class="btn btn-primary" ng-click="vm.registerUser(user, registerUserForm)" ng-disabled="registerUserForm.$invalid || user.password != user.confirmPassword">Submit</button>
     </div>
 </div>
