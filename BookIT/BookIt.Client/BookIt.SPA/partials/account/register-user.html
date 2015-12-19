@@ -1,49 +1,60 @@
-﻿<div class="col-md-6 col-md-6 col-md-offset-3">
-    <div class="well bs-component">
-        <form class="form-horizontal" name="registerUserForm">
-            <fieldset>
-                <legend>Register user</legend>
+﻿
+<h4>{{vm.status}}</h4>
+<div kendo-progress-bar="progressBar" k-min="0" k-max="100" ng-model="vm.progress" style="width: 100%;"></div>
 
-                <div class="form-group">
-                    <label for="inputFirstName" class="col-lg-2 control-label">First name</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputFirstName" placeholder="First name" required="required" ng-model="user.firstName">
-                    </div>
-                </div>
+<form class="form-horizontal" name="registerUserForm">
 
-                <div class="form-group">
-                    <label for="inputLastName" class="col-lg-2 control-label">Last name</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputLastName" placeholder="Last name" required="required" ng-model="user.lastName">
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" required="required" ng-model="user.email">
-                    </div>
-                </div>
+    <ul class="forms">
+        <li>
+            <label for="inputFirstName">First Name</label>
+            <input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="First name" required="required" ng-model="user.firstName" ng-blur="vm.changeInput()">
+            <!--<span class="error" ng-show="registerUserForm.firstName.$error.required">Firstname is Required</span>-->
+        </li>
+        <li>
+            <label for="inputLastName">Last Name</label>
+            <input type="text" class="form-control" id="inputLastName" placeholder="Last name" required="required" ng-model="user.lastName" ng-blur="vm.changeInput()">
+        </li>
+        <li>
+            <label for="inputEmail">Email</label>
+            <input type="text" class="form-control" id="inputEmail" placeholder="Email" required="required" ng-model="user.email" ng-blur="vm.changeInput()">
+        </li>
+        <li>
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" required="required" ng-model="user.password" ng-blur="vm.changeInput()">
+        </li>
+        <li>
+            <label for="inputConfirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password" required="required" ng-model="user.confirmPassword" ng-blur="vm.changeInput()">
+        </li>
+    </ul>
+</form>
 
-                <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                    <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required="required" ng-model="user.password">
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm Password</label>
-                    <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password" required="required" ng-model="user.confirmPassword">
-                        <div class="checkbox">
-                            <label><input type="checkbox"> Remember me</label>
-                        </div>
-                    </div>
-                </div>
+<button class="btn btn-primary" ng-click="vm.registerUser(user, registerUserForm)" ng-disabled="registerUserForm.$invalid || user.password != user.confirmPassword">Submit</button>
 
-            </fieldset>
-        </form>
-        <button class="btn btn-primary" ng-click="vm.registerUser(user, registerUserForm)" ng-disabled="registerUserForm.$invalid || user.password != user.confirmPassword">Submit</button>
-    </div>
-</div>
+
+<style>
+    #profileCompleteness {
+        width: 100%;
+    }
+
+    .forms {
+        list-style-type: none;
+        padding: 2em 0 0;
+        margin: 0;
+    }
+
+        .forms label {
+            display: block;
+            font-size: 12px;
+            line-height: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 1em;
+        }
+
+        .forms li {
+            margin-bottom: 1.5em;
+        }
+</style>

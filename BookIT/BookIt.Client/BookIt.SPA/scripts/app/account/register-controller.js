@@ -1,15 +1,16 @@
 ﻿(function () {
     "use strict";
 
+    //TODO: Validate and show message if input is incorrect. Also do not fill the progress bar
     function RegisterController(auth, $location, $timeout, notifier) {
         var vm = this,
             numberOfFields = $('.forms li').length,
             updateValue = 100 / numberOfFields;
 
-        vm.status = "Completed profile status";
-
+        vm.status = "Profile completeness...";
         
         vm.changeInput = function () {
+            debugger;
             var totalUpdate = 0;
             $(".forms input, .forms option:selected").each(function () {
                 if (this.value !== "") {

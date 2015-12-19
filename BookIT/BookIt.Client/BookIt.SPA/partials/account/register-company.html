@@ -1,47 +1,40 @@
 ﻿<div class="container">
-    <div class="demo-section k-content">
-        <!--<h4>Profile Completeness: <span id="completed">0%</span></h4>-->
 
-        <h4>{{vm.status}}</h4>
-        <div kendo-progress-bar="progressBar" k-min="0" k-max="100" ng-model="vm.progress" style="width: 100%;"></div>
-        <input ng-model="vm.progress"/>
+    <h4>{{vm.status}}</h4>
+    <div kendo-progress-bar="progressBar" k-min="0" k-max="100" ng-model="vm.progress" style="width: 100%;"></div>
 
-        <!--<div id="profileCompleteness"></div>-->
-            <ul class="forms">
-                <li>
-                    <label>Company Name</label>
-                    <input type="text" name="firstName" value="" class="k-textbox" ng-model="vm.name" ng-blur="vm.changeInput()"/>
-                </li>
-                <li>
-                    <label>Company Address</label>
-                    <input type="text" name="companyAddress" value="" class="k-textbox"  ng-model="company.address" ng-blur="vm.changeInput()"/>
-                </li>
-                <li>
-                    <label>Business Type</label>
-                    <select id="businessTypeInput" name="businessType" ng-model="company.businessType" ng-blur="vm.changeInput()">
-                        <option value="Hairdress">Male</option>
-                        <option value="Cosmetics">Female</option>
-                        <option value="Default" selected="selected">Rather not say</option>
-                    </select>
-                </li>
-                <li>
-                    <label>MOL First Name</label>
-                    <input type="text" name="molFirstName" value="" class="k-textbox" ng-model="company.molFirstName" ng-blur="vm.changeInput()"/>
-                </li>
-            </ul>
-        </div>
+    <form class="form-horizontal" name="registerCompanyForm">
+        <ul class="forms">
+            <li>
+                <label>Company Name</label>
+                <input type="text" name="firstName" value="" class="k-textbox" ng-model="vm.name" ng-blur="vm.changeInput()" />
+            </li>
+            <li>
+                <label>Company Address</label>
+                <input type="text" name="companyAddress" value="" class="k-textbox" ng-model="company.address" ng-blur="vm.changeInput()" />
+            </li>
+            <li>
+                <label>Business Type</label>
+                <select id="businessTypeInput" name="businessType" ng-model="company.businessType" ng-blur="vm.changeInput()">
+                    <option value="Hairdress">Male</option>
+                    <option value="Cosmetics">Female</option>
+                    <option value="Default" selected="selected">Rather not say</option>
+                </select>
+            </li>
+            <li>
+                <label>MOL First Name</label>
+                <input type="text" name="molFirstName" value="" class="k-textbox" ng-model="company.molName" ng-blur="vm.changeInput()" />
+            </li>
+        </ul>
+    </form>
+    <button class="btn btn-primary" ng-click="vm.registerCompany(user, registerCompanyForm)" ng-disabled="registerCompanyForm.$invalid || company.password != company.confirmPassword">Submit</button>
 </div>
 
 <script>
     $(document).ready(function () {
-        var ALL_INPUT_FIELDS_COUNT = 4;
-        var UPDATE_AMOUNT = 100 / ALL_INPUT_FIELDS_COUNT;
-         
 
         $("#businessTypeInput").kendoDropDownList();
 
-
-        
     });
 </script>
 <style>
