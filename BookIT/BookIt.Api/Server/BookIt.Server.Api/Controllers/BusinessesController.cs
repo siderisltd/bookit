@@ -4,6 +4,9 @@
     using BookIt.Services.Data.Contracts;
     using System.Web.Http;
 
+    /// <summary>
+    /// NOT IMPLEMENTED
+    /// </summary>
     [Authorize]
     [RoutePrefix("api/Businesses")]
     public class BusinessesController : ApiController

@@ -4,6 +4,9 @@
     using System.Web.Http;
     using BookIt.Services.Data.Contracts;
 
+    /// <summary>
+    /// NOT IMPLEMENTED
+    /// </summary>
     [Authorize]
     [RoutePrefix("api/Tags")]
     public class TagsController : ApiController
@@ -14,8 +17,6 @@
         {
             this.tagsService = tagsService;
         }
-
-
 
         public IHttpActionResult Get()
         {

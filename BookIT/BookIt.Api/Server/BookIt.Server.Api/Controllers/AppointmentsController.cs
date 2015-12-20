@@ -17,7 +17,6 @@
     [RoutePrefix("api/Appointments")]
     public class AppointmentsController : ApiController
     {
-        //The base controller
         //TODO: Add constraints and different response types
         private readonly IAppointmentsService appointmentsService;
 
@@ -26,6 +25,10 @@
             this.appointmentsService = appointmentsService;
         }
 
+        /// <summary>
+        /// Get all appointments
+        /// </summary>
+        /// <returns></returns>
         //GET: api/Appointments/async/all
         [Route("async/all")]
         public async Task<IHttpActionResult> Get()
@@ -40,6 +43,12 @@
             return this.Ok(model);
         }
 
+        /// <summary>
+        /// Return paged appointments
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize">optional parameter devault value = 20</param>
+        /// <returns></returns>
         //GET: api/Appointments/async/all/paged
         [Route("async/all/paged")]
         public async Task<IHttpActionResult> Get(int page, int pageSize = Constants.DefaultPageSize)
@@ -61,6 +70,11 @@
             return this.Ok(model);
         }
 
+        /// <summary>
+        /// Get appointment by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         //GET: api/Appointments/async?id=10
         [Route("async")]
         public async Task<IHttpActionResult> Get(int id)
@@ -75,6 +89,11 @@
             return this.Ok(model);
         }
 
+        /// <summary>
+        /// Add an appointment
+        /// </summary>
+        /// <param name="appointmentToAdd"></param>
+        /// <returns></returns>
         //POST: api/Appointments/async/add
         [Route("async/add")]
         [ValidateModel]
@@ -87,6 +106,11 @@
             return this.Ok();
         }
 
+        /// <summary>
+        /// Add many appointments 
+        /// </summary>
+        /// <param name="appointmentsToAdd"></param>
+        /// <returns></returns>
         //POST: api/Appointments/async/addmany
         [Route("async/addmany")]
         [ValidateModel]
@@ -103,10 +127,13 @@
         }
 
 
-
-        //TODO: Test below
-
         //PUT: api/Appointments/async/update
+        /// <summary>
+        /// !Not tested
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="appointmentToUpdate"></param>
+        /// <returns></returns>
         [Route("async/update")]
         [ValidateModel]
         public async Task<IHttpActionResult> Put(int id, [FromBody]AppointmentsBindingModel appointmentToUpdate)
@@ -125,6 +152,11 @@
         }
 
         //DELETE: api/Appointments/markDeleted
+        /// <summary>
+        ///  !Not tested
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("markDeleted")]
         public IHttpActionResult Delete(object id)
         {
@@ -134,6 +166,11 @@
         }
 
         //DELETE: api/Appointments/markDeleted
+        /// <summary>
+        ///  !Not tested
+        /// </summary>
+        /// <param name="appointmentToDelete"></param>
+        /// <returns></returns>
         [Route("markDeleted")]
         [ValidateModel]
         public IHttpActionResult Delete(Appointment appointmentToDelete)

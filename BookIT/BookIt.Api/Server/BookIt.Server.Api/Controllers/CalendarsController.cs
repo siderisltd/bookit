@@ -22,6 +22,14 @@ namespace BookIt.Server.Api.Controllers
             this.locationsService = locationsService;
         }
 
+        /// <summary>
+        /// Get calendar for particular business on given date
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="businessId"></param>
+        /// <returns></returns>
         public IHttpActionResult Get(int year, int month, int day, [FromBody]int businessId)
         {
             var date = new DateTime(year, month, day);
@@ -30,6 +38,15 @@ namespace BookIt.Server.Api.Controllers
             return this.Ok(model);
         }
 
+        /// <summary>
+        /// Add appointment in business's calendar
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="locationId"></param>
+        /// <param name="timeFrame"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IHttpActionResult> Post(int year, int month, int day, [FromBody]int locationId, [FromBody]TimeFrame timeFrame)
         {

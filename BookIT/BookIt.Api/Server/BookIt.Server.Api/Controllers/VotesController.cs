@@ -4,6 +4,9 @@
     using System.Web.Http;
     using BookIt.Services.Data.Contracts;
 
+    /// <summary>
+    /// NOT IMPLEMENTED
+    /// </summary>
     [Authorize]
     [RoutePrefix("api/Votes")]
     public class VotesController : ApiController

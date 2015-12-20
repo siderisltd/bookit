@@ -24,6 +24,10 @@ namespace BookIt.Server.Api.Controllers
             this.locationsService = locationsService;
         }
 
+        /// <summary>
+        /// Get all locations
+        /// </summary>
+        /// <returns></returns>
         public async Task<IHttpActionResult> Get()
         {
             var model = await this.locationsService
@@ -36,6 +40,11 @@ namespace BookIt.Server.Api.Controllers
             return this.Ok(model);
         }
 
+        /// <summary>
+        /// Gets location by given ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [ValidateModel]
         public async Task<IHttpActionResult> Get(int id)
         {
@@ -47,6 +56,11 @@ namespace BookIt.Server.Api.Controllers
             return this.Ok(model);
         }
 
+        /// <summary>
+        /// Add location by given model
+        /// </summary>
+        /// <param name="bindingModel"></param>
+        /// <returns></returns>
         [ValidateModel]
         public async Task<IHttpActionResult> Post(AddLocationBindingModel bindingModel)
         {
@@ -55,6 +69,11 @@ namespace BookIt.Server.Api.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        /// Add many locations by getting a collection of POCO
+        /// </summary>
+        /// <param name="bindingModel"></param>
+        /// <returns></returns>
         [ValidateModel]
         public async Task<IHttpActionResult> Post(IEnumerable<AddLocationBindingModel> bindingModelsToAdd)
         {
@@ -67,6 +86,12 @@ namespace BookIt.Server.Api.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        /// Update given location
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updatableBindingModel"></param>
+        /// <returns></returns>
         [ValidateModel]
         public async Task<IHttpActionResult> Put(int id, UpdateLocationBindingModel updatableBindingModel)
         {
@@ -82,6 +107,11 @@ namespace BookIt.Server.Api.Controllers
             return this.Ok(dbObject.Id);
         }
 
+        /// <summary>
+        /// Deletes location by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IHttpActionResult Delete(object id)
         {
             this.locationsService.DeleteById(id);
@@ -89,6 +119,11 @@ namespace BookIt.Server.Api.Controllers
             return this.Ok();
         }
 
+        /// <summary>
+        /// Delete location by given POCO
+        /// </summary>
+        /// <param name="deletableBindingModel"></param>
+        /// <returns></returns>
         [ValidateModel]
         public IHttpActionResult Delete(DeleteLocationBindingModel deletableBindingModel)
         {

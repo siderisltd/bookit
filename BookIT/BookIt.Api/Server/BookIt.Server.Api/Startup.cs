@@ -15,21 +15,23 @@ namespace BookIt.Server.Api
     {
         public static void Configuration(IAppBuilder app)
         {
-            AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.BookItApiAssembly));
-            AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.DataTransferModelsAssembly));
+            //TODO:Uncomment if you want to run the server with starting the client
+
+            //AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.BookItApiAssembly));
+            //AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.DataTransferModelsAssembly));
 
             //TODO: Restrict Ip 
             app.UseCors(CorsOptions.AllowAll);
             ConfigureAuth(app);
 
 
-            var httpConfig = new HttpConfiguration();
-            WebApiConfig.Register(httpConfig);
-            httpConfig.EnsureInitialized();
-            //ODataConfig.Register(httpConfig);
-            app
-                .UseNinjectMiddleware(NinjectConfig.CreateKernel)
-                .UseNinjectWebApi(httpConfig);
+            //var httpConfig = new HttpConfiguration();
+            //WebApiConfig.Register(httpConfig);
+            //httpConfig.EnsureInitialized();
+
+            //app
+            //    .UseNinjectMiddleware(NinjectConfig.CreateKernel)
+            //    .UseNinjectWebApi(httpConfig);
 
         }
     }
