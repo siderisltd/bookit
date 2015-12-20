@@ -25,6 +25,8 @@
     <!--lib styles-->
     <link href="styles/bootstrap/bootstrap.css" rel="stylesheet"/>
 
+    <link href="styles/css-loader.css" rel="stylesheet"/>
+
     <link href="styles/kendo-ui/kendo.common.min.css" rel="stylesheet" />
     <link href="styles/kendo-ui/kendo.bootstrap.min.css" rel="stylesheet"/>
 
@@ -66,6 +68,8 @@
 
         </div>
     </div>
+    <!--adding a class show shows the spinner--> 
+    <div id="special-spinner" class="special-style-loader"></div>
 
     <!--Main container-->
     <div class="container" ng-view></div>
@@ -97,6 +101,5 @@
     <!--Services-->
     <script src="scripts/app/account/auth-service.js"></script>
     <script src="scripts/app/account/identity-service.js"></script>
-
 </body>
 </html>

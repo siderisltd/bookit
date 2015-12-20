@@ -105,6 +105,6 @@
         .config(['$routeProvider', '$locationProvider', config])
         .run(['auth', '$cookies', '$http', '$rootScope', '$location', run])
         .value('toastr', toastr)
-        .constant('baseUrl', 'http://localhost:1715/api/');
+        .constant('baseUrl', 'http://bserver2016.apphb.com/api/');
 
 }());
