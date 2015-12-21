@@ -7,7 +7,6 @@
     /// <summary>
     /// NOT IMPLEMENTED
     /// </summary>
-    [Authorize]
     [RoutePrefix("api/Categories")]
     public class CategoriesController : ApiController
     {

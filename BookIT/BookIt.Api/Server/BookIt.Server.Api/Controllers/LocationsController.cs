@@ -1,6 +1,4 @@
-﻿using BookIt.Server.DataTransferModels.Locations.ViewModels;
-
-namespace BookIt.Server.Api.Controllers
+﻿namespace BookIt.Server.Api.Controllers
 {
     using System.Linq;
     using System.Web.Http;
@@ -14,7 +12,10 @@ namespace BookIt.Server.Api.Controllers
     using BookIt.Server.Common.Contracts;
     using BookIt.Server.DataTransferModels.Locations.BindingModels;
     using BookIt.Server.Infrastructure.Validation;
+    using BookIt.Server.DataTransferModels.Locations.ViewModels;
+    using Data.Common;
 
+    [Authorize(Roles = ConstantRoles.CLIENT_ROLE)]
     public class LocationsController : ApiController , IBookitDeleteController<DeleteLocationBindingModel>
     {
         private readonly ILocationsService locationsService;

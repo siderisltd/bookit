@@ -107,7 +107,8 @@ namespace Bookit.Data.Migrations
                 ConstantRoles.MANAGER_ROLE,
                 ConstantRoles.OWNER_ROLE,
                 ConstantRoles.SUPERVISOR_ROLE,
-                ConstantRoles.WORKER_ROLE
+                ConstantRoles.WORKER_ROLE,
+                ConstantRoles.CLIENT_ROLE
             };
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(ctx));

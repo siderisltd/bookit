@@ -27,7 +27,6 @@
     using Data.Common;
 
     //TODO: Extract service and the logic from Startup.Auth
-    [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
@@ -352,11 +351,16 @@
 
             IdentityResult createUserResult = await this.UserManager.CreateAsync(user, model.Password);
 
-            IdentityResult rolesResult = await this.AssignRoles(user.Id, model.Roles);
-
             if (!createUserResult.Succeeded)
             {
                 return GetErrorResult(createUserResult);
+            }
+
+            IdentityResult rolesResult = await this.AssignRoles(user.Id, model.Roles);
+
+            if (!rolesResult.Succeeded)
+            {
+                return GetErrorResult(rolesResult);
             }
 
             return Ok();
@@ -400,18 +404,20 @@
         [Route("Identity")]
         public async Task<IHttpActionResult> Identity()
         {
-            //TODO: FIX
-            var currentUserUsername = this.User.Identity.Name;
+            var username = this.User.Identity.GetUserName();
 
-            var username = currentUserUsername;
-
+            string[] userRoles = ConstantRoles.allRoles.Where(role => this.User.IsInRole(role)).ToArray();
 
             if (username == null)
             {
                 return InternalServerError(new Exception("User should not be null!"));
             }
 
-            return this.Json(username);
+            return this.Json(new
+            {
+                Username = username,
+                Roles = userRoles
+            });
         }
 
         protected override void Dispose(bool disposing)
@@ -429,7 +435,8 @@
         {
             bool correctRoles = true;
             StringBuilder incorrectRoles = new StringBuilder();
-            foreach (var role in roles)
+            string[] distinctRoles = roles.Distinct().ToArray();
+            foreach (var role in distinctRoles)
             {
                 if (!ConstantRoles.allRoles.Contains(role))
                 {
@@ -445,7 +452,8 @@
             }
 
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.db));
-            var result = await userManager.AddToRolesAsync(userId, roles);
+       
+            var result = await userManager.AddToRolesAsync(userId, distinctRoles);
 
             if (!result.Succeeded)
             {

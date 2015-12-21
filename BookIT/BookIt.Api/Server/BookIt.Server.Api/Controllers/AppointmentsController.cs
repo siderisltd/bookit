@@ -15,6 +15,7 @@
     using BookIt.Services.Common.Extensions;
     using Data.Common;
 
+    [Authorize(Roles = ConstantRoles.CLIENT_ROLE)]
     [RoutePrefix("api/Appointments")]
     public class AppointmentsController : ApiController
     {

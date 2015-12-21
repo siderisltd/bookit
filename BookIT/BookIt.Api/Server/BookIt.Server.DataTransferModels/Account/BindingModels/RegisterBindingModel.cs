@@ -36,6 +36,7 @@
         /// Manager
         /// Supervisor
         /// Worker
+        /// Client
         /// They are in BookIt.Data.Common.ConstantRoles.cs
         /// </summary>
         [Required]

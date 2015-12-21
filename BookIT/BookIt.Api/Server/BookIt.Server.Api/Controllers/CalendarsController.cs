@@ -1,15 +1,15 @@
-﻿using BookIt.Server.DataTransferModels.Calendars;
-
-namespace BookIt.Server.Api.Controllers
+﻿namespace BookIt.Server.Api.Controllers
 {
     using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using BookIt.Server.DataTransferModels.Calendars;
+    using Data.Common;
     using Data.Models;
     using Services.Data.Contracts;
 
-    [Authorize]
+    [Authorize(Roles = ConstantRoles.CLIENT_ROLE)]
     [RoutePrefix("api/Calendars")]
     public class CalendarsController : ApiController
     {

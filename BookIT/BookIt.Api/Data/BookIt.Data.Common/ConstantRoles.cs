@@ -11,6 +11,7 @@
         public const string MANAGER_ROLE = "Manager";
         public const string SUPERVISOR_ROLE = "Supervisor";
         public const string WORKER_ROLE = "Worker";
+        public const string CLIENT_ROLE = "Client";
 
         public static readonly HashSet<string> allRoles = new HashSet<string>()
         {
@@ -20,7 +21,8 @@
             OWNER_ROLE,
             MANAGER_ROLE,
             SUPERVISOR_ROLE,
-            WORKER_ROLE
+            WORKER_ROLE,
+            CLIENT_ROLE
         };
 
         
