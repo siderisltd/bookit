@@ -457,8 +457,7 @@
 
             if (!result.Succeeded)
             {
-                throw new InvalidOperationException(
-                    $"Unable to assign roles to userID {userId} ORIGINAL EXCEPTION: {string.Join(" | ", result.Errors)}");
+                throw new InvalidOperationException(string.Format("Unable to assign roles to userID {0} ORIGINAL EXCEPTION: {1}", userId, string.Join(" | ", result.Errors)));
             }
 
             return result;
