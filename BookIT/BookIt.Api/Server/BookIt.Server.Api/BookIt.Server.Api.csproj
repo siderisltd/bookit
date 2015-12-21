@@ -360,6 +360,10 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\BookIt.Data.Common\BookIt.Data.Common.csproj">
+      <Project>{16f8e50e-0537-44b0-8e0d-55a675b4c09a}</Project>
+      <Name>BookIt.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\BookIt.Data.Models\BookIt.Data.Models.csproj">
       <Project>{f9f60195-ce27-498b-b1ec-13de1eb9e702}</Project>
       <Name>BookIt.Data.Models</Name>

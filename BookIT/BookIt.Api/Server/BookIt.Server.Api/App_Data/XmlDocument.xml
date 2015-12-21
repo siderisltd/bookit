@@ -28,7 +28,7 @@
         </member>
         <member name="M:BookIt.Server.Api.Controllers.AppointmentsController.Get">
             <summary>
-            Get all appointments
+            Get all appointments [REQUIRED ROLES: Owner]
             </summary>
             <returns></returns>
         </member>

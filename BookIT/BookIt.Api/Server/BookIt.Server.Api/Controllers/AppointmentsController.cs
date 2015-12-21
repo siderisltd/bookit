@@ -13,6 +13,7 @@
     using BookIt.Server.Common;
     using BookIt.Server.Infrastructure.Validation;
     using BookIt.Services.Common.Extensions;
+    using Data.Common;
 
     [RoutePrefix("api/Appointments")]
     public class AppointmentsController : ApiController
@@ -26,10 +27,11 @@
         }
 
         /// <summary>
-        /// Get all appointments
+        /// Get all appointments [REQUIRED ROLES: Owner]
         /// </summary>
         /// <returns></returns>
         //GET: api/Appointments/async/all
+        [Authorize(Roles = ConstantRoles.OWNER_ROLE)]
         [Route("async/all")]
         public async Task<IHttpActionResult> Get()
         {
@@ -37,6 +39,8 @@
                 .All()
                 .ProjectTo<AppointmentsViewModel>()
                 .ToListAsync();
+
+            
 
             if (model == null) { return NotFound(); }
 

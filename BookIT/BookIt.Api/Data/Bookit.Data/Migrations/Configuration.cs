@@ -2,7 +2,11 @@ namespace Bookit.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
+    using BookIt.Data.Common;
     using BookIt.Data.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
 
     public sealed class Configuration : DbMigrationsConfiguration<BookItDbContext>
     {
@@ -14,6 +18,11 @@ namespace Bookit.Data.Migrations
 
         protected override void Seed(BookItDbContext ctx)
         {
+            //Innitial roles
+            //var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(ctx));
+            AddOrUpdateRoles(ctx);
+
+
             //TODO: Add innitial data and create a fake repo for testing in folder tests
 
             //7 categories
@@ -86,6 +95,30 @@ namespace Bookit.Data.Migrations
             //    });
 
             //#endregion
+        }
+
+        private static void AddOrUpdateRoles(BookItDbContext ctx)
+        {
+            var allRoles = new string[]
+            {
+                ConstantRoles.ADMIN_ROLE,
+                ConstantRoles.CREATOR_ROLE,
+                ConstantRoles.EMPLOYEE_ROLE,
+                ConstantRoles.MANAGER_ROLE,
+                ConstantRoles.OWNER_ROLE,
+                ConstantRoles.SUPERVISOR_ROLE,
+                ConstantRoles.WORKER_ROLE
+            };
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(ctx));
+
+            foreach (var roleName in allRoles)
+            {
+                if (!roleManager.RoleExists(roleName))
+                {
+                    roleManager.Create(new IdentityRole(roleName));
+                }
+            }
         }
     }
 }

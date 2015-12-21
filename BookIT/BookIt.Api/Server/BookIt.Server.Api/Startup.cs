@@ -6,6 +6,7 @@ using BookIt.Server.Common;
 
 namespace BookIt.Server.Api
 {
+    using System.Web.Security;
     using Microsoft.Owin.Cors;
     using Ninject.Web.Common.OwinHost;
     using Ninject.Web.WebApi.OwinHost;
@@ -19,6 +20,8 @@ namespace BookIt.Server.Api
 
             //AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.BookItApiAssembly));
             //AutoMapperConfig.RegisterMappings(Assembly.Load(Constants.DataTransferModelsAssembly));
+
+           
 
             //TODO: Restrict Ip 
             app.UseCors(CorsOptions.AllowAll);
@@ -34,5 +37,6 @@ namespace BookIt.Server.Api
             //    .UseNinjectWebApi(httpConfig);
 
         }
+
     }
 }

@@ -8,8 +8,10 @@
     using System.Security.Cryptography;
     using System.Threading.Tasks;
     using System.Linq;
+    using System.Text;
     using System.Web;
     using System.Web.Http;
+    using System.Web.Security;
     using Bookit.Data;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -22,6 +24,7 @@
     using BookIt.Server.Api.Providers;
     using BookIt.Server.DataTransferModels.Account.BindingModels;
     using BookIt.Server.DataTransferModels.Account.ViewModels;
+    using Data.Common;
 
     //TODO: Extract service and the logic from Startup.Auth
     [Authorize]
@@ -31,16 +34,12 @@
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager userManager;
 
-        private IBookItDbContext db;
+        private BookItDbContext db;
 
+        //TODO: Check for better solution not to instantiate db directly here. It is used because of the pvt method AssignRole
         public AccountController()
-            :this(new BookItDbContext())
         {
-        }
-
-        public AccountController(IBookItDbContext db)
-        {
-            this.db = db;
+            this.db = new BookItDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -138,7 +137,7 @@
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -271,9 +270,9 @@
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -331,6 +330,8 @@
             return logins;
         }
 
+
+        //TODO: Authorization is made only for those type of register!
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -343,20 +344,19 @@
 
             var user = new ApplicationUser()
             {
-                UserName = model.Email,
+                UserName = model.Username,
                 Email = model.Email,
                 FirstName = model.FirstName,
-                LastName = model.LastName
+                LastName = model.LastName,
             };
 
-            IdentityResult result;
+            IdentityResult createUserResult = await this.UserManager.CreateAsync(user, model.Password);
 
-            result = await UserManager.CreateAsync(user, model.Password);
+            IdentityResult rolesResult = await this.AssignRoles(user.Id, model.Roles);
 
-
-            if (!result.Succeeded)
+            if (!createUserResult.Succeeded)
             {
-                return GetErrorResult(result);
+                return GetErrorResult(createUserResult);
             }
 
             return Ok();
@@ -390,7 +390,7 @@
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
@@ -424,6 +424,38 @@
 
             base.Dispose(disposing);
         }
+
+        private async Task<IdentityResult> AssignRoles(string userId, string[] roles)
+        {
+            bool correctRoles = true;
+            StringBuilder incorrectRoles = new StringBuilder();
+            foreach (var role in roles)
+            {
+                if (!ConstantRoles.allRoles.Contains(role))
+                {
+                    correctRoles = false;
+                    incorrectRoles.Append(role);
+                    incorrectRoles.Append(" | ");
+                }
+            }
+
+            if (!correctRoles)
+            {
+                throw new ArgumentException("You cannot define these roles: " + incorrectRoles.ToString());
+            }
+
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.db));
+            var result = await userManager.AddToRolesAsync(userId, roles);
+
+            if (!result.Succeeded)
+            {
+                throw new InvalidOperationException(
+                    $"Unable to assign roles to userID {userId} ORIGINAL EXCEPTION: {string.Join(" | ", result.Errors)}");
+            }
+
+            return result;
+        }
+
 
         #region Helpers
 
